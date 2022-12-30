@@ -32,7 +32,15 @@
     "trailingComma": "es5"
   },
   "name": "nexus-res",
-  "author": "adil",
+  "author": {
+    "name": "adil",
+    "github": "adevinwild",
+    "twitter": "adevinwild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adevinwild/nexus-res"
+  },
   "module": "dist/nexus-res.esm.js",
   "size-limit": [
     {

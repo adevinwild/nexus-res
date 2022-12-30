@@ -1,103 +1,126 @@
-# TSDX User Guide
+<p align="center">
+<img src="./assets/banner.png" width="50%">
+</p>
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+<h1 align="center">📦 NexusRes</h1>
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+**NexusRes** is a lightweight library that provides premade HTTP response codes (e.g. `Ok`, `Created`, `Unauthorized`) for use in Node.js applications. It is written in TypeScript and has zero dependencies.
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+## ⚡️ Features
 
-## Commands
+- Contains all necessary HTTP response codes
+- Lightweight and easy to use
+- Written in TypeScript for added type safety and improved developer experience
+- Compatible with all versions of Node.js
 
-TSDX scaffolds your new library inside `/src`.
+## 🤝 Contributing
 
-To run TSDX, use:
+We welcome contributions to NexusRes! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.
+
+## 💾 Installation
+
+To install NexusRes, simply run the following command in your terminal:
 
 ```bash
-npm start # or yarn start
+npm install nexus-res
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## 💻 Usage
 
-To do a one-off build, use `npm run build` or `yarn build`.
+To use NexusRes in your Node.js application, import the desired response class and use it to generate an HTTP response:
 
-To run tests, use `npm test` or `yarn test`.
+```ts
+import { Ok } from 'nexus-res';
 
-## Configuration
-
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+export default async (req, res) => {
+  res
+    .status(200)
+    .json(
+      new Ok('Everything is fine.', 'https://example.com/docs/ok', '#ref-123')
+    );
+};
 ```
 
-### Rollup
+This will generate an HTTP response with a status code of 200 and a message of "OK".
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+## 📖 Documentation
 
-### TypeScript
+The following HTTP status codes are supported by this library:
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+### 📍 1XX
 
-## Continuous Integration
+- **100** Continue
+- **101** SwitchingProtocols
+- **102** Processing
+- **103** EarlyHints
 
-### GitHub Actions
+### 📍 2XX
 
-Two actions are added by default:
+- **200** OK
+- **201** Created
+- **202** Accepted
+- **203** NonAuthoritativeInformation
+- **204** NoContent
+- **205** ResetContent
+- **206** PartialContent
+- **207** MultiStatus
+- **208** AlreadyReported
 
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
+### 📍 3XX
 
-## Optimizations
+- **300** MultipleChoices
+- **301** MovedPermanently
+- **302** Found
+- **303** SeeOther
+- **304** NotModified
+- **305** UseProxy
+- **306** SwitchProxy
+- **307** TemporaryRedirect
+- **308** PermanentRedirect
 
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
+### 📍 4XX
 
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
+- **400** BadRequest
+- **401** Unauthorized
+- **402** PaymentRequired
+- **403** Forbidden
+- **404** NotFound
+- **405** MethodNotAllowed
+- **406** NotAcceptable
+- **407** ProxyAuthenticationRequired
+- **408** RequestTimeout
+- **409** Conflict
+- **410** Gone
+- **411** LengthRequired
+- **412** PreconditionFailed
+- **413** PayloadTooLarge
+- **414** URITooLong
+- **415** Unsupported
+- **416** RangeNotSatisfiable
+- **417** ExpectationFailed
+- **418** ImATeapot
+- **421** MisdirectedRequest
+- **422** UnprocessableEntity
+- **423** Locked
+- **424** FailedDependency
+- **425** TooEarly
+- **426** UpgradeRequired
+- **428** PreconditionRequired
+- **429** TooManyRequests
+- **431** RequestHeaderFieldsTooLarge
+- **451** UnavailableForLegalReasons
 
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
-```
+### 📍 **5XX**
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
+- **500** InternalServerError
+- **501** NotImplemented
+- **502** BadGateway
+- **503** ServiceUnavailable
+- **504** GatewayTimeout
+- **505** HttpVersionNotSupported
+- **506** VariantAlsoNegotiates
+- **507** InsufficientStorage
+- **508** LoopDetected
+- **510** NotExtended
+- **511** NetworkAuthenticationRequired
+- **520** UnknownError

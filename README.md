@@ -11,7 +11,7 @@
 - Contains all necessary HTTP response codes
 - Lightweight and easy to use
 - Written in TypeScript for added type safety and improved developer experience
-- Compatible with all versions of Node.js
+- Compatible with Node >= 14
 
 ## 🤝 Contributing
 

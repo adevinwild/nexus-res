@@ -2,11 +2,14 @@
 <img src="./assets/banner.png" width="50%">
 </p>
 
-<h1 align="center">📦 NexusRes</h1>
+<h2 align="center">📦 NexusRes</h1>
+<p align="center">
+<code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate HTTP responses with additional information</b>. This allows you to quickly generate consistent and informative HTTP responses for your Node.js applications.
+</p>
 
-**NexusRes** is a lightweight library that provides premade HTTP response codes (e.g. `Ok`, `Created`, `Unauthorized`) for use in Node.js applications. It is written in TypeScript and has zero dependencies.
+---
 
-## ⚡️ Features
+## 🚀 Features
 
 - Contains all necessary HTTP response codes
 - Lightweight and easy to use
@@ -33,15 +36,39 @@ To use NexusRes in your Node.js application, import the desired response class a
 import { Ok } from 'nexus-res';
 
 export default async (req, res) => {
-  res
-    .status(200)
-    .json(
-      new Ok('Everything is fine.', 'https://example.com/docs/ok', '#ref-123')
-    );
+  const user = req.user;
+
+  // 🎉 Create a new Ok response
+  const ok = new Ok(
+    // The cause of the OK response, add a custom message here
+    'Everything is fine!',
+    // Add metadata to your response
+    user,
+    // The URL of the documentation for this response.
+    'https://example.com/docs/get-user',
+    // A request identifier for debugging purposes.
+    '#ref-123'
+  );
+
+  res.status(ok.statusCode).json(ok);
 };
 ```
 
-This will generate an HTTP response with a status code of 200 and a message of "OK".
+## 💬 Sample response
+
+```json
+{
+  "statusCode": 200,
+  "message": "OK",
+  "metadata": {
+    "userId": 1,
+    "username": "john_doe123"
+  },
+  "cause": "Everything is fine!",
+  "reference": "https://example.com/docs/get-user",
+  "requestId": "#ref-123"
+}
+```
 
 ## 📖 Documentation
 

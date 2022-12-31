@@ -4,7 +4,7 @@
 
 <h2 align="center">📦 NexusRes</h2>
 <p align="center">
-<code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate HTTP responses with additional information</b>. This allows you to quickly generate consistent and informative HTTP responses for your Node.js applications.
+<code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate consistent and informative HTTP responses for your Node.js applications.
 </p>
 
 ---

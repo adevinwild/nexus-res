@@ -55,16 +55,16 @@ export default async (req, res) => {
   const user = req.user;
 
   // 🎉 Create a new Ok response
-  const ok = new Ok(
+  const ok = new Ok({
     // The cause of the OK response, add a custom message here
-    'Everything is fine!',
+    cause: 'Everything is fine.',
     // Add metadata to your response
-    user,
+    metadata: user,
     // The URL of the documentation for this response.
-    'https://example.com/docs/get-user',
+    reference: 'https://example.com/docs/ok',
     // A request identifier for debugging purposes.
-    '#ref-123'
-  );
+    requestId: '#ref-123',
+  });
 
   res.status(ok.statusCode).json(ok);
 };

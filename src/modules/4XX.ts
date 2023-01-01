@@ -1,4 +1,5 @@
 import HttpResponseBase from '../core/HttpResponse';
+import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 400 Bad Request response.
@@ -12,19 +13,11 @@ import HttpResponseBase from '../core/HttpResponse';
  * };
  */
 export class BadRequest extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 400,
       message: 'Bad Request',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -41,19 +34,11 @@ export class BadRequest extends HttpResponseBase {
  * };
  */
 export class Unauthorized extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 401,
       message: 'Unauthorized',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -70,19 +55,11 @@ export class Unauthorized extends HttpResponseBase {
  * };
  */
 export class PaymentRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 402,
       message: 'Payment Required',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -99,19 +76,11 @@ export class PaymentRequired extends HttpResponseBase {
  * };
  */
 export class Forbidden extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 403,
       message: 'Forbidden',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -128,19 +97,11 @@ export class Forbidden extends HttpResponseBase {
  * };
  */
 export class NotFound extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 404,
       message: 'Not Found',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -158,19 +119,11 @@ export class NotFound extends HttpResponseBase {
  *
  */
 export class MethodNotAllowed extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 405,
       message: 'Method Not Allowed',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -189,19 +142,11 @@ export class MethodNotAllowed extends HttpResponseBase {
  */
 
 export class NotAcceptable extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 406,
       message: 'Not Acceptable',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -219,19 +164,11 @@ export class NotAcceptable extends HttpResponseBase {
  *
  */
 export class ProxyAuthenticationRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 407,
       message: 'Proxy Authentication Required',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -249,19 +186,11 @@ export class ProxyAuthenticationRequired extends HttpResponseBase {
  *
  */
 export class RequestTimeout extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 408,
       message: 'Request Timeout',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -279,19 +208,11 @@ export class RequestTimeout extends HttpResponseBase {
  *
  */
 export class Conflict extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 409,
       message: 'Conflict',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -309,19 +230,11 @@ export class Conflict extends HttpResponseBase {
  *
  */
 export class Gone extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 410,
       message: 'Gone',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -339,19 +252,11 @@ export class Gone extends HttpResponseBase {
  *
  */
 export class LengthRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 411,
       message: 'Length Required',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -369,19 +274,11 @@ export class LengthRequired extends HttpResponseBase {
  *
  */
 export class PreconditionFailed extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 412,
       message: 'Precondition Failed',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -399,19 +296,11 @@ export class PreconditionFailed extends HttpResponseBase {
  *
  */
 export class PayloadTooLarge extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 413,
       message: 'Payload Too Large',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -429,19 +318,11 @@ export class PayloadTooLarge extends HttpResponseBase {
  *
  */
 export class URITooLong extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 414,
       message: 'URI Too Long',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -459,19 +340,11 @@ export class URITooLong extends HttpResponseBase {
  *
  */
 export class Unsupported extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 415,
       message: 'Unsupported Media Type',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -489,19 +362,11 @@ export class Unsupported extends HttpResponseBase {
  *
  */
 export class RangeNotSatisfiable extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 416,
       message: 'Range Not Satisfiable',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -519,19 +384,11 @@ export class RangeNotSatisfiable extends HttpResponseBase {
  *
  */
 export class ExpectationFailed extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 417,
       message: 'Expectation Failed',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -549,19 +406,11 @@ export class ExpectationFailed extends HttpResponseBase {
  *
  */
 export class ImATeapot extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 418,
       message: "I'm a teapot",
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -580,19 +429,11 @@ export class ImATeapot extends HttpResponseBase {
  *
  */
 export class MisdirectedRequest extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 421,
       message: 'Misdirected Request',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -611,19 +452,11 @@ export class MisdirectedRequest extends HttpResponseBase {
  *
  */
 export class UnprocessableEntity extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 422,
       message: 'Unprocessable Entity',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -642,19 +475,11 @@ export class UnprocessableEntity extends HttpResponseBase {
  *
  */
 export class Locked extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 423,
       message: 'Locked',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -673,19 +498,11 @@ export class Locked extends HttpResponseBase {
  *
  */
 export class FailedDependency extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 424,
       message: 'Failed Dependency',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -703,19 +520,11 @@ export class FailedDependency extends HttpResponseBase {
  *
  */
 export class TooEarly extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 425,
       message: 'Too Early',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -733,19 +542,11 @@ export class TooEarly extends HttpResponseBase {
  *
  */
 export class UpgradeRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 426,
       message: 'Upgrade Required',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -763,19 +564,11 @@ export class UpgradeRequired extends HttpResponseBase {
  *
  */
 export class PreconditionRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 428,
       message: 'Precondition Required',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -793,19 +586,11 @@ export class PreconditionRequired extends HttpResponseBase {
  *
  */
 export class TooManyRequests extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 429,
       message: 'Too Many Requests',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -822,19 +607,11 @@ export class TooManyRequests extends HttpResponseBase {
  *
  */
 export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 431,
       message: 'Request Header Fields Too Large',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -852,19 +629,11 @@ export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
  *
  */
 export class UnavailableForLegalReasons extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 451,
       message: 'Unavailable For Legal Reasons',
-      metadata,
-      cause,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }

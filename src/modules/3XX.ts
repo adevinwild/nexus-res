@@ -1,4 +1,5 @@
 import HttpResponseBase from '../core/HttpResponse';
+import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 300 Multiple Choices response.
@@ -12,19 +13,11 @@ import HttpResponseBase from '../core/HttpResponse';
  * };
  */
 export class MultipleChoices extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 300,
       message: 'Multiple Choices',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -41,19 +34,11 @@ export class MultipleChoices extends HttpResponseBase {
  * };
  */
 export class MovedPermanently extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 301,
       message: 'Moved Permanently',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -70,19 +55,11 @@ export class MovedPermanently extends HttpResponseBase {
  * };
  */
 export class Found extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 302,
       message: 'Found',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -99,19 +76,11 @@ export class Found extends HttpResponseBase {
  * };
  */
 export class SeeOther extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 303,
       message: 'See Other',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -128,19 +97,11 @@ export class SeeOther extends HttpResponseBase {
  * };
  */
 export class NotModified extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 304,
       message: 'Not Modified',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -157,19 +118,11 @@ export class NotModified extends HttpResponseBase {
  * };
  */
 export class UseProxy extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 305,
       message: 'Use Proxy',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -185,19 +138,11 @@ export class UseProxy extends HttpResponseBase {
  * };
  */
 export class TemporaryRedirect extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 307,
       message: 'Temporary Redirect',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -214,19 +159,11 @@ export class TemporaryRedirect extends HttpResponseBase {
  * };
  */
 export class PermanentRedirect extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 308,
       message: 'Permanent Redirect',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -243,19 +180,11 @@ export class PermanentRedirect extends HttpResponseBase {
  * };
  */
 export class TooManyRedirects extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 310,
       message: 'Too Many Redirects',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }

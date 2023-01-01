@@ -46,6 +46,11 @@ export interface IHttpResponse {
   requestId?: string;
 }
 
+export type HttpResponseWithDefaults = Omit<
+  IHttpResponse,
+  'statusCode' | 'message'
+>;
+
 export type StatusCode =
   | 100
   | 101

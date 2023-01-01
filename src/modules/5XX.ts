@@ -1,4 +1,5 @@
 import HttpResponseBase from '../core/HttpResponse';
+import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 400 Bad Request response.
@@ -12,19 +13,11 @@ import HttpResponseBase from '../core/HttpResponse';
  * };
  */
 export class InternalServerError extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 500,
       message: 'Internal server error',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -42,19 +35,11 @@ export class InternalServerError extends HttpResponseBase {
  *
  */
 export class NotImplemented extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 501,
       message: 'Not implemented',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -72,19 +57,11 @@ export class NotImplemented extends HttpResponseBase {
  *
  */
 export class BadGateway extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 502,
       message: 'Bad gateway',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -102,19 +79,11 @@ export class BadGateway extends HttpResponseBase {
  *
  */
 export class ServiceUnavailable extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 503,
       message: 'Service unavailable',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -132,19 +101,11 @@ export class ServiceUnavailable extends HttpResponseBase {
  *
  */
 export class GatewayTimeout extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 504,
       message: 'Gateway timeout',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -162,19 +123,11 @@ export class GatewayTimeout extends HttpResponseBase {
  *
  */
 export class HttpVersionNotSupported extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 505,
       message: 'HTTP version not supported',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -192,19 +145,11 @@ export class HttpVersionNotSupported extends HttpResponseBase {
  *
  */
 export class VariantAlsoNegotiates extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 506,
       message: 'Variant also negotiates',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -222,19 +167,11 @@ export class VariantAlsoNegotiates extends HttpResponseBase {
  *
  */
 export class InsufficientStorage extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 507,
       message: 'Insufficient storage',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -251,19 +188,11 @@ export class InsufficientStorage extends HttpResponseBase {
  *
  */
 export class LoopDetected extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 508,
       message: 'Loop detected',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -281,19 +210,11 @@ export class LoopDetected extends HttpResponseBase {
  *
  */
 export class NotExtended extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 510,
       message: 'Not extended',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -311,19 +232,11 @@ export class NotExtended extends HttpResponseBase {
  *
  */
 export class NetworkAuthenticationRequired extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 511,
       message: 'Network authentication required',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }
@@ -341,19 +254,11 @@ export class NetworkAuthenticationRequired extends HttpResponseBase {
  *
  */
 export class UnknownError extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 520,
       message: 'Unknown error',
-      cause: cause,
-      metadata: metadata,
-      reference: reference,
-      requestId: requestId,
+      ...options,
     });
   }
 }

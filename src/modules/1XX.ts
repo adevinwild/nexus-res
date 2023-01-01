@@ -1,4 +1,5 @@
 import HttpResponseBase from '../core/HttpResponse';
+import { HttpResponseWithDefaults } from '../core/interface';
 /**
  * Class representing a premade HTTP 100 Continue response.
  * @extends HttpResponseBase
@@ -11,19 +12,11 @@ import HttpResponseBase from '../core/HttpResponse';
  * };
  */
 export class Continue extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 100,
       message: 'Continue',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -40,19 +33,11 @@ export class Continue extends HttpResponseBase {
  * };
  */
 export class SwitchingProtocols extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 101,
       message: 'Switching Protocols',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -69,19 +54,11 @@ export class SwitchingProtocols extends HttpResponseBase {
  * };
  */
 export class Processing extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 102,
       message: 'Processing',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -97,19 +74,11 @@ export class Processing extends HttpResponseBase {
  * };
  */
 export class EarlyHints extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 103,
       message: 'Early Hints',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }

@@ -1,4 +1,5 @@
 import HttpResponseBase from '../core/HttpResponse';
+import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 200 OK response.
@@ -12,19 +13,11 @@ import HttpResponseBase from '../core/HttpResponse';
  * };
  */
 export class Ok extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 200,
       message: 'OK',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -40,19 +33,11 @@ export class Ok extends HttpResponseBase {
  * };
  */
 export class Created extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 201,
       message: 'Created',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -69,19 +54,11 @@ export class Created extends HttpResponseBase {
  * };
  */
 export class Accepted extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 202,
       message: 'Accepted',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -98,19 +75,11 @@ export class Accepted extends HttpResponseBase {
  * };
  */
 export class NonAuthoritativeInformation extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 203,
       message: 'Non-Authoritative Information',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -127,19 +96,11 @@ export class NonAuthoritativeInformation extends HttpResponseBase {
  * };
  */
 export class NoContent extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 204,
       message: 'No Content',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -156,19 +117,11 @@ export class NoContent extends HttpResponseBase {
  * };
  */
 export class ResetContent extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 205,
       message: 'Reset Content',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -185,19 +138,11 @@ export class ResetContent extends HttpResponseBase {
  * };
  */
 export default class PartialContent extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 206,
       message: 'Partial Content',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }
@@ -214,19 +159,11 @@ export default class PartialContent extends HttpResponseBase {
  * };
  */
 export class MultiStatus extends HttpResponseBase {
-  constructor(
-    cause?: string,
-    metadata?: any,
-    reference?: string,
-    requestId?: string
-  ) {
+  constructor(options?: HttpResponseWithDefaults) {
     super({
       statusCode: 207,
       message: 'Multi-Status',
-      cause,
-      metadata,
-      reference,
-      requestId,
+      ...options,
     });
   }
 }

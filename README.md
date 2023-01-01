@@ -1,10 +1,20 @@
 <p align="center">
-<img src="./assets/banner.png" width="50%">
+  <img src="./assets/banner.png" width="512px">
+
+</p>
+
+<p align="center">
+  <a href="https://github.com/adevinwild/nexus-res/actions/workflows/main.yml" title="CI">
+    <img src="https://github.com/adevinwild/nexus-res/actions/workflows/main.yml/badge.svg?branch=main" />
+  </a>
+  <img src="https://img.shields.io/node/v/nexus-res">
+  <img src="https://img.shields.io/npm/types/nexus-res">
+  
 </p>
 
 <h2 align="center">📦 NexusRes</h2>
 <p align="center">
-<code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate consistent and informative HTTP responses for your Node.js applications.
+  <code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate consistent and informative HTTP responses for your Node.js applications.
 </p>
 
 ---
@@ -26,6 +36,12 @@ To install NexusRes, simply run the following command in your terminal:
 
 ```bash
 npm install nexus-res
+```
+
+**Or with `yarn`**
+
+```bash
+yarn add nexus-res
 ```
 
 ## 💻 Usage

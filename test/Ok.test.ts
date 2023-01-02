@@ -1,26 +1,6 @@
 import { Ok } from '../src';
 
 describe('Ok', () => {
-  it('should correctly serialize to a JSON object', () => {
-    const ok = new Ok({
-      cause: 'Everything is fine.',
-      metadata: { foo: 'bar' },
-      reference: 'https://example.com/docs/ok',
-      requestId: '#ref-123',
-    });
-    const expectedJSON = {
-      statusCode: 200,
-      message: 'OK',
-      cause: 'Everything is fine.',
-      metadata: {
-        foo: 'bar',
-      },
-      reference: 'https://example.com/docs/ok',
-      requestId: '#ref-123',
-    };
-    expect(ok).toEqual(expectedJSON);
-  });
-
   it('should return a 200 response', () => {
     const response = new Ok();
     expect(response.statusCode).toBe(200);
@@ -53,5 +33,27 @@ describe('Ok', () => {
     expect(response.statusCode).toBe(200);
     expect(response.message).toBe('OK');
     expect(response.requestId).toBe('#ref-123');
+  });
+
+  it('should correctly serialize to a JSON object', () => {
+    const ok = new Ok({
+      cause: 'Everything is fine.',
+      metadata: { foo: 'bar' },
+      reference: 'https://example.com/docs/ok',
+      requestId: '#ref-123',
+    });
+
+    const expectedJSON = {
+      statusCode: 200,
+      message: 'OK',
+      cause: 'Everything is fine.',
+      metadata: {
+        foo: 'bar',
+      },
+      reference: 'https://example.com/docs/ok',
+      requestId: '#ref-123',
+    };
+
+    expect(ok).toEqual(expectedJSON);
   });
 });

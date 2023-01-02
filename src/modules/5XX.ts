@@ -9,7 +9,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * import { InternalServerError } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(500).json(new InternalServerError("An error has occured.", { userId: 123 }, "https://example.com/docs/internal-server-error", "#ref-123"));
+ *   const internalServerError = new InternalServerError()
+ *   res.status(internalServerError.statusCode).json(internalServerError);
  * };
  */
 export class InternalServerError extends HttpResponseBase {
@@ -30,7 +31,8 @@ export class InternalServerError extends HttpResponseBase {
  * import { NotImplemented } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(501).json(new NotImplemented("The server does not support the functionality required to fulfill the request.", { userId : 123 }, "https://example.com/docs/not-implemented", "#ref-123"));
+ *   const notImplemented = new NotImplemented()
+ *   res.status(notImplemented.statusCode).json(notImplemented);
  * };
  *
  */
@@ -52,8 +54,8 @@ export class NotImplemented extends HttpResponseBase {
  * import { BadGateway } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(502).json(new BadGateway("The server, while acting as a gateway or proxy, received an invalid response from the upstream server.", { userId :
- * 123 }, "https://example.com/docs/bad-gateway", "#ref-123"));
+ *   const badGateway = new BadGateway()
+ *   res.status(badGateway.statusCode).json(badGateway);
  *
  */
 export class BadGateway extends HttpResponseBase {
@@ -74,8 +76,8 @@ export class BadGateway extends HttpResponseBase {
  * import { ServiceUnavailable } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(503).json(new ServiceUnavailable("The server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.",
- * { userId : 123 }, "https://example.com/docs/service-unavailable", "#ref-123"));
+ *   const serviceUnavailable = new ServiceUnavailable()
+ *   res.status(serviceUnavailable.statusCode).json(serviceUnavailable);
  *
  */
 export class ServiceUnavailable extends HttpResponseBase {
@@ -96,8 +98,8 @@ export class ServiceUnavailable extends HttpResponseBase {
  * import { GatewayTimeout } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(504).json(new GatewayTimeout("The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.",
- * { userId : 123 }, "https://example.com/docs/gateway-timeout", "#ref-123"));
+ *   const gatewayTimeout = new GatewayTimeout()
+ *   res.status(gatewayTimeout.statusCode).json(gatewayTimeout);
  *
  */
 export class GatewayTimeout extends HttpResponseBase {
@@ -118,8 +120,8 @@ export class GatewayTimeout extends HttpResponseBase {
  * import { HttpVersionNotSupported } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(505).json(new HttpVersionNotSupported("The server does not support, or refuses to support, the major version of HTTP that was used in the request message.",
- * { userId : 123 }, "https://example.com/docs/http-version-not-supported", "#ref-123"));
+ *   const httpVersionNotSupported = new HttpVersionNotSupported()
+ *   res.status(httpVersionNotSupported.statusCode).json(httpVersionNotSupported);
  *
  */
 export class HttpVersionNotSupported extends HttpResponseBase {
@@ -140,8 +142,8 @@ export class HttpVersionNotSupported extends HttpResponseBase {
  * import { VariantAlsoNegotiates } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(506).json(new VariantAlsoNegotiates("The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.",
- * { userId : 123 }, "https://example.com/docs/variant-also-negotiates", "#ref-123"));
+ *   const variantAlsoNegotiates = new VariantAlsoNegotiates()
+ *   res.status(variantAlsoNegotiates.statusCode).json(variantAlsoNegotiates);
  *
  */
 export class VariantAlsoNegotiates extends HttpResponseBase {
@@ -162,8 +164,8 @@ export class VariantAlsoNegotiates extends HttpResponseBase {
  * import { InsufficientStorage } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(507).json(new InsufficientStorage("The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.",
- * { userId : 123 }, "https://example.com/docs/insufficient-storage", "#ref-123"));
+ *   const insufficientStorage = new InsufficientStorage()
+ *   res.status(insufficientStorage.statusCode).json(insufficientStorage);
  *
  */
 export class InsufficientStorage extends HttpResponseBase {
@@ -183,8 +185,8 @@ export class InsufficientStorage extends HttpResponseBase {
  * @example
  * import { LoopDetected } from 'nexus-res';
  * export default async (req, res) => {
- * res.status(508).json(new LoopDetected("The server terminated an operation because it encountered an infinite loop while processing a request with "Depth: infinity". This status indicates that the entire operation failed.",
- * { userId : 123 }, "https://example.com/docs/loop-detected", "#ref-123"));
+ *   const loopDetected = new LoopDetected()
+ *   res.status(loopDetected.statusCode).json(loopDetected);
  *
  */
 export class LoopDetected extends HttpResponseBase {
@@ -205,8 +207,8 @@ export class LoopDetected extends HttpResponseBase {
  * import { NotExtended } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(510).json(new NotExtended("Further extensions to the request are required for the server to fulfil it.",
- * { userId : 123 }, "https://example.com/docs/not-extended", "#ref-123"));
+ *   const notExtended = new NotExtended()
+ *   res.status(notExtended.statusCode).json(notExtended);
  *
  */
 export class NotExtended extends HttpResponseBase {
@@ -227,8 +229,8 @@ export class NotExtended extends HttpResponseBase {
  * import { NetworkAuthenticationRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(511).json(new NetworkAuthenticationRequired("The client needs to authenticate to gain network access.",
- * { userId : 123 }, "https://example.com/docs/network-authentication-required", "#ref-123"));
+ *   const networkAuthenticationRequired = new NetworkAuthenticationRequired()
+ *   res.status(networkAuthenticationRequired.statusCode).json(networkAuthenticationRequired);
  *
  */
 export class NetworkAuthenticationRequired extends HttpResponseBase {
@@ -249,8 +251,8 @@ export class NetworkAuthenticationRequired extends HttpResponseBase {
  * import { UnknownError } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(520).json(new UnknownError("The 520 error is used as a "catch-all response for when the origin server returns something unexpected",
- * { userId : 123 }, "https://example.com/docs/unknown-error", "#ref-123"));
+ *   const unknownError = new UnknownError()
+ *   res.status(unknownError.statusCode).json(unknownError);
  *
  */
 export class UnknownError extends HttpResponseBase {

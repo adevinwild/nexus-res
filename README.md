@@ -8,27 +8,24 @@
     <img src="https://github.com/adevinwild/nexus-res/actions/workflows/main.yml/badge.svg?branch=main" />
   </a>
   <img src="https://img.shields.io/node/v/nexus-res">
-  <img src="https://img.shields.io/npm/types/nexus-res">
   
 </p>
 
 <h2 align="center">📦 NexusRes</h2>
 <p align="center">
-  <code>NexusRes</code> is a lightweight library that <b>provides a structured and easy-to-use way to generate consistent and informative HTTP responses for your Node.js applications.
+  <code>NexusRes</code> is a lightweight and dependency-free library that provides a <b>structured</b> and <b>easy-to-use</b> way to generate consistent and informative HTTP responses for your Node.js applications.
 </p>
 
 ---
 
 ## 🚀 Features
 
-- Contains all necessary HTTP response codes
-- Lightweight and easy to use
-- Written in TypeScript for added type safety and improved developer experience
-- Compatible with Node >= 14
-
-## 🤝 Contributing
-
-We welcome contributions to NexusRes! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.
+- 📦 Contains all necessary HTTP response codes
+- 🌳 Tree-shakeable
+- 🤌 Dependency-free
+- 🪶 Lightweight
+- 🔵 Written in TypeScript
+- 🤖 Compatible with `node >= 14`
 
 ## 💾 Installation
 
@@ -47,6 +44,8 @@ yarn add nexus-res
 ## 💻 Usage
 
 To use NexusRes in your Node.js application, import the desired response class and use it to generate an HTTP response:
+
+🧪 Example with an Express.js like route :
 
 ```ts
 import { Ok } from 'nexus-res';
@@ -87,6 +86,54 @@ export default async (req, res) => {
 ```
 
 ## 📖 Documentation
+
+Interface of the HttpResponse
+
+```ts
+interface IHttpResponse {
+  /**
+   * The HTTP status code.
+   * @type {StatusCode}
+   */
+  statusCode: StatusCode;
+
+  /**
+   * The response message.
+   * @type {string}
+   */
+  message: string;
+
+  /**
+   * **The optional cause of the error.**
+   * @type {string}
+   */
+  cause?: string;
+
+  /**
+   * **Custom metadata to be included in the response.**
+   * @member {any} metadata
+   * @example
+   * import { BadRequest } from 'nexus-res';
+   *
+   * export default async (req, res) => {
+   *  res.status(400).json(new BadRequest("Invalid request format.", { userId: 123 }));
+   * };
+   */
+  metadata?: any;
+
+  /**
+   * **The optional reference to more detailed documentation or information about the error.**
+   * @type {string}
+   */
+  reference?: string;
+
+  /**
+   * The optional request ID for tracking and debugging purposes.
+   * @type {string}
+   */
+  requestId?: string;
+}
+```
 
 The following HTTP status codes are supported by this library:
 
@@ -167,3 +214,7 @@ The following HTTP status codes are supported by this library:
 - **510** NotExtended
 - **511** NetworkAuthenticationRequired
 - **520** UnknownError
+
+## 🤝 Contributing
+
+We welcome contributions to NexusRes! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.

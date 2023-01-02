@@ -9,7 +9,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * import { BadRequest } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(400).json(new BadRequest("Invalid request format.", "https://example.com/docs/bad-request", "#ref-123", { userId: 123 }));
+ *   const badRequest = new BadRequest()
+ *   res.status(badRequest.statusCode).json(badRequest);
  * };
  */
 export class BadRequest extends HttpResponseBase {
@@ -30,7 +31,8 @@ export class BadRequest extends HttpResponseBase {
  * import { Unauthorized } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(401).json(new Unauthorized("Invalid API key.", { userId: 123 }, "https://docs.myapi.com/errors/unauthorized", "#ref-123"));
+ *   const unauthorized = new Unauthorized()
+ *   res.status(unauthorized.statusCode).json(unauthorized);
  * };
  */
 export class Unauthorized extends HttpResponseBase {
@@ -51,7 +53,8 @@ export class Unauthorized extends HttpResponseBase {
  * import { PaymentRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(402).json(new PaymentRequired("API key has reached its monthly request limit.", { userId: 123 }, "https://docs.myapi.com/errors/payment-required", "#ref-123"));
+ *   const paymentRequired = new PaymentRequired()
+ *   res.status(paymentRequired.statusCode).json(paymentRequired);
  * };
  */
 export class PaymentRequired extends HttpResponseBase {
@@ -72,7 +75,8 @@ export class PaymentRequired extends HttpResponseBase {
  * import { Forbidden } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(403).json(new Forbidden("You do not have permission to access this resource.", { userId: 123 }, "https://docs.myapi.com/errors/payment-required", "#ref-123"));
+ *   const forbidden = new Forbidden()
+ *   res.status(forbidden.statusCode).json(forbidden);
  * };
  */
 export class Forbidden extends HttpResponseBase {
@@ -93,7 +97,8 @@ export class Forbidden extends HttpResponseBase {
  * import { NotFound } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(404).json(new NotFound("The requested resource was not found.", { userId : 123 }, " https://docs.myapi.com/errors/not-found", "#ref-123"));
+ *   const notFound = new NotFound()
+ *   res.status(notFound.statusCode).json(notFound);
  * };
  */
 export class NotFound extends HttpResponseBase {
@@ -114,7 +119,8 @@ export class NotFound extends HttpResponseBase {
  * import { MethodNotAllowed } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(405).json(new MethodNotAllowed("The requested method is not allowed.", { userId: 123 }, "https://docs.myapi.com/errors/method-not-allowed", "#ref-123"));
+ *   const methodNotAllowed = new MethodNotAllowed()
+ *   res.status(methodNotAllowed.statusCode).json(methodNotAllowed);
  * };
  *
  */
@@ -136,7 +142,8 @@ export class MethodNotAllowed extends HttpResponseBase {
  * import { NotAcceptable } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(406).json(new NotAcceptable("The requested resource is not available in the requested format.", { userId: 123 }, "https://docs.myapi.com/errors/not-acceptable", "#ref-123"));
+ *   const notAcceptable = new NotAcceptable()
+ *   res.status(notAcceptable.statusCode).json(notAcceptable);
  * };
  *
  */
@@ -159,7 +166,8 @@ export class NotAcceptable extends HttpResponseBase {
  * import { ProxyAuthenticationRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(407).json(new ProxyAuthenticationRequired("You must authenticate with a proxy server before accessing this resource.", { userId : 123 }, " https://docs.myapi.com/errors/proxy-authentication-required", "#ref-123"));
+ *   const proxyAuthenticationRequired = new ProxyAuthenticationRequired()
+ *   res.status(proxyAuthenticationRequired.statusCode).json(proxyAuthenticationRequired);
  * };
  *
  */
@@ -181,7 +189,8 @@ export class ProxyAuthenticationRequired extends HttpResponseBase {
  * import { RequestTimeout } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(408).json(new RequestTimeout("The server timed out waiting for the request.", { userId: 123 }, "https://docs.myapi.com/errors/request-timeout", "#ref-123"));
+ *   const requestTimeout = new RequestTimeout()
+ *   res.status(requestTimeout.statusCode).json(requestTimeout);
  * };
  *
  */
@@ -203,7 +212,8 @@ export class RequestTimeout extends HttpResponseBase {
  * import { Conflict } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(409).json(new Conflict("The request could not be completed due to a conflict with the current state of the resource.", { userId : 123 }, "https://docs.myapi.com/errors/conflict", "#ref-123"));
+ *    const conflict = new Conflict()
+ *    res.status(conflict.statusCode).json(conflict);
  * };
  *
  */
@@ -225,7 +235,8 @@ export class Conflict extends HttpResponseBase {
  * import { Gone } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(410).json(new Gone("The requested resource is no longer available and will not be available again.", { userId:123 }, "https://docs.myapi.com/errors/gone", "#ref-123"));
+ *   const gone = new Gone()
+ *   res.status(gone.statusCode).json(gone);
  * };
  *
  */
@@ -247,7 +258,8 @@ export class Gone extends HttpResponseBase {
  * import { LengthRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(411).json(new LengthRequired("The request did not specify the length of its content, which is required by the requested resource.", { userId: 123 }, "https://docs.myapi.com/errors/length-required", "#ref-123"));
+ *   const lengthRequired = new LengthRequired()
+ *   res.status(lengthRequired.statusCode).json(lengthRequired);
  * };
  *
  */
@@ -269,7 +281,8 @@ export class LengthRequired extends HttpResponseBase {
  * import { PreconditionFailed } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(412).json(new PreconditionFailed("The server does not meet one of the preconditions that the requester put on the request.", { userId : 123 }, "https://docs.myapi.com/errors/precondition-failed", "#ref-123"));
+ *   const preconditionFailed = new PreconditionFailed()
+ *   res.status(preconditionFailed.statusCode).json(preconditionFailed);
  * };
  *
  */
@@ -291,7 +304,8 @@ export class PreconditionFailed extends HttpResponseBase {
  * import { PayloadTooLarge } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(413).json(new PayloadTooLarge("The request is larger than the server is willing or able to process.", { userId : 123 }, "https://docs.myapi.com/errors/payload-too-large", "#ref-123"));
+ *   const payloadTooLarge = new PayloadTooLarge()
+ *   res.status(payloadTooLarge.statusCode).json(payloadTooLarge);
  * };
  *
  */
@@ -313,7 +327,8 @@ export class PayloadTooLarge extends HttpResponseBase {
  * import { URITooLong } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(414).json(new URITooLong("The URI provided was too long for the server to process.", { userId : 123 }, "https://docs.myapi.com/errors/uri-too-long", "#ref-123"));
+ *   const uriTooLong = new URITooLong()
+ *   res.status(uriTooLong.statusCode).json(uriTooLong);
  * };
  *
  */
@@ -335,7 +350,8 @@ export class URITooLong extends HttpResponseBase {
  * import { Unsupported } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(415).json(new Unsupported("The request entity has a media type which the server or resource does not support.", { userId : 123 }, "https://docs.myapi.com/errors/unsupported", "#ref-123"));
+ *   const unsupported = new Unsupported()
+ *   res.status(unsupported.statusCode).json(unsupported);
  * };
  *
  */
@@ -357,7 +373,8 @@ export class Unsupported extends HttpResponseBase {
  * import { RangeNotSatisfiable } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(416).json(new RangeNotSatisfiable("The client has asked for a portion of the file, but the server cannot supply that portion.", { userId : 123 }, "https://docs.myapi.com/errors/range-not-satisfiable", "#ref-123"));
+ *   const rangeNotSatisfiable = new RangeNotSatisfiable()
+ *   res.status(rangeNotSatisfiable.statusCode).json(rangeNotSatisfiable);
  * };
  *
  */
@@ -379,7 +396,8 @@ export class RangeNotSatisfiable extends HttpResponseBase {
  * import { ExpectationFailed } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(417).json(new ExpectationFailed("The server cannot meet the requirements of the Expect request-header field.", { userId : 123 }, "https://docs.myapi.com/errors/expectation-failed", "#ref-123"));
+ *   const expectationFailed = new ExpectationFailed()
+ *   res.status(expectationFailed.statusCode).json(expectationFailed);
  * };
  *
  */
@@ -401,7 +419,8 @@ export class ExpectationFailed extends HttpResponseBase {
  * import { ImATeapot } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(418).json(new ImATeapot("The server refuses the attempt to brew coffee with a teapot. 🫖");
+ *   const imATeapot = new ImATeapot() 🫖
+ *   res.status(imATeapot.statusCode).json(imATeapot);
  * };
  *
  */
@@ -423,8 +442,8 @@ export class ImATeapot extends HttpResponseBase {
  * import { MisdirectedRequest } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(421).json(new MisdirectedRequest("The request was directed at a server that is not able to produce a response. (for example because of a connection reuse)", { userId : 123 },
- * "https://docs.myapi.com/errors/misdirected-request", "#ref-123"));
+ *   const misdirectedRequest = new MisdirectedRequest()
+ *   res.status(misdirectedRequest.statusCode).json(misdirectedRequest);
  * };
  *
  */
@@ -446,8 +465,8 @@ export class MisdirectedRequest extends HttpResponseBase {
  * import { UnprocessableEntity } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(422).json(new UnprocessableEntity("The request was well-formed but was unable to be followed due to semantic errors.", { userId : 123 },
- * "https://docs.myapi.com/errors/unprocessable-entity", "#ref-123"));
+ *   const unprocessableEntity = new UnprocessableEntity()
+ *   res.status(unprocessableEntity.statusCode).json(unprocessableEntity);
  * };
  *
  */
@@ -469,8 +488,8 @@ export class UnprocessableEntity extends HttpResponseBase {
  * import { Locked } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(423).json(new Locked("The resource that is being accessed is locked.", { userId : 123 },
- * "https://docs.myapi.com/errors/locked", "#ref-123"));
+ *   const locked = new Locked()
+ *   res.status(locked.statusCode).json(locked);
  * };
  *
  */
@@ -492,8 +511,8 @@ export class Locked extends HttpResponseBase {
  * import { FailedDependency } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(424).json(new FailedDependency("The request failed due to failure of a previous request.", { userId : 123 },
- * "https://docs.myapi.com/errors/failed-dependency", "#ref-123"));
+ *   const failedDependency = new FailedDependency()
+ *   res.status(failedDependency.statusCode).json(failedDependency);
  * };
  *
  */
@@ -515,8 +534,8 @@ export class FailedDependency extends HttpResponseBase {
  * import { TooEarly } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(425).json(new TooEarly("Indicates that the server is unwilling to risk processing a request that might be replayed.", { userId : 123 },
- * "https://docs.myapi.com/errors/too-early", "#ref-123"));
+ *   const tooEarly = new TooEarly()
+ *   res.status(tooEarly.statusCode).json(tooEarly);
  *
  */
 export class TooEarly extends HttpResponseBase {
@@ -537,8 +556,8 @@ export class TooEarly extends HttpResponseBase {
  * import { UpgradeRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(426).json(new UpgradeRequired("The client should switch to a different protocol such as TLS/1.0, given in the Upgrade header field.", { userId : 123 },
- * "https://docs.myapi.com/errors/upgrade-required", "#ref-123"));
+ *  const upgradeRequired = new UpgradeRequired()
+ *   res.status(upgradeRequired.statusCode).json(upgradeRequired);
  *
  */
 export class UpgradeRequired extends HttpResponseBase {
@@ -559,8 +578,8 @@ export class UpgradeRequired extends HttpResponseBase {
  * import { PreconditionRequired } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(428).json(new PreconditionRequired("The origin server requires the request to be conditional.", { userId : 123 },
- * "https://docs.myapi.com/errors/precondition-required", "#ref-123"));
+ *   const preconditionRequired = new PreconditionRequired()
+ *   res.status(preconditionRequired.statusCode).json(preconditionRequired);
  *
  */
 export class PreconditionRequired extends HttpResponseBase {
@@ -581,8 +600,8 @@ export class PreconditionRequired extends HttpResponseBase {
  * import { TooManyRequests } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(429).json(new TooManyRequests("The user has sent too many requests in a given amount of time.", { userId : 123 },
- * "https://docs.myapi.com/errors/too-many-requests", "#ref-123"));
+ *   const tooManyRequests = new TooManyRequests()
+ *   res.status(tooManyRequests.statusCode).json(tooManyRequests);
  *
  */
 export class TooManyRequests extends HttpResponseBase {
@@ -602,8 +621,8 @@ export class TooManyRequests extends HttpResponseBase {
  * @example
  * import { RequestHeaderFieldsTooLarge } from 'nexus-res';
  * export default async (req, res) => {
- * res.status(431).json(new RequestHeaderFieldsTooLarge("The server is unwilling to process the request because either an individual header field, or all the header fields collectively, are too large.", { userId : 123 },
- * "https://docs.myapi.com/errors/request-header-fields-too-large", "#ref-123"));
+ *   const requestHeaderFieldsTooLarge = new RequestHeaderFieldsTooLarge()
+ *   res.status(requestHeaderFieldsTooLarge.statusCode).json(requestHeaderFieldsTooLarge);
  *
  */
 export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
@@ -624,8 +643,8 @@ export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
  * import { UnavailableForLegalReasons } from 'nexus-res';
  *
  * export default async (req, res) => {
- * res.status(451).json(new UnavailableForLegalReasons("A server operator has received a legal demand to deny access to a resource or to a set of resources that includes the requested resource.", { userId : 123 },
- * "https://docs.myapi.com/errors/unavailable-for-legal-reasons", "#ref-123"));
+ *   const unavailableForLegalReasons = new UnavailableForLegalReasons()
+ *   res.status(unavailableForLegalReasons.statusCode).json(unavailableForLegalReasons);
  *
  */
 export class UnavailableForLegalReasons extends HttpResponseBase {

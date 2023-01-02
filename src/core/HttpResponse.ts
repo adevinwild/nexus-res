@@ -21,4 +21,8 @@ export default abstract class HttpResponseBase implements IHttpResponse {
     this.cause = response.cause;
     this.reference = response.reference;
   }
+
+  public toString() {
+    return JSON.stringify(this);
+  }
 }

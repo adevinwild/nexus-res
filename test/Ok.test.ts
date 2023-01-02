@@ -56,4 +56,10 @@ describe('Ok', () => {
 
     expect(ok).toEqual(expectedJSON);
   });
+
+  it('should correctly stringify to a JSON string', () => {
+    const ok = new Ok().toString();
+    const expectedJSON = '{"statusCode":200,"message":"OK"}';
+    expect(ok).toEqual(expectedJSON);
+  });
 });

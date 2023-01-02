@@ -123,3 +123,7 @@ export type StatusCode =
   | 510
   | 511
   | 520;
+
+export type ConfigFile = {
+  serverType: 'http' | 'express' | 'fastify' | 'koa' | 'hapi';
+};

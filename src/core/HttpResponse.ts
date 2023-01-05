@@ -23,25 +23,20 @@ export default abstract class HttpResponseBase implements IHttpResponse {
     this.reference = response.reference;
   }
 
-  public toString() {
-    return JSON.stringify(this);
-  }
-
   public send(res: any) {
     let config = readConfigFile();
+
     if (!config) {
       config = {
         serverType: 'express', // Default to express
       };
     }
 
-    const { serverType } = config;
-
     const serverResponses: Record<ConfigFile['serverType'], () => any> = {
       http: () =>
         res
           .writeHead(this.statusCode, { 'Content-Type': 'application/json' })
-          .end(JSON.stringify(this)),
+          .end(this.toString()),
       express: () => res.status(this.statusCode).json(this),
       fastify: () => res.code(this.statusCode).send(this),
       koa: () => {
@@ -51,14 +46,14 @@ export default abstract class HttpResponseBase implements IHttpResponse {
       hapi: () => res.response(this).code(this.statusCode),
     };
 
-    if (!serverResponses[serverType]) {
-      throw new Error(
-        `⛔️ NexusRes | Server type "${serverType}" not supported.`
-      );
+    if (!serverResponses[config.serverType]) {
+      throw new Error(`Server type "${config.serverType}" not supported.`);
     }
 
-    return serverResponses[serverType]();
+    return serverResponses[config.serverType]();
   }
 
-  public test() {}
+  public toString() {
+    return JSON.stringify(this);
+  }
 }

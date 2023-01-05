@@ -28,9 +28,11 @@ export default abstract class HttpResponseBase implements IHttpResponse {
   }
 
   public send(res: any) {
-    const config = readConfigFile();
+    let config = readConfigFile();
     if (!config) {
-      throw new Error('⛔️ NexusRes | No config file found.');
+      config = {
+        serverType: 'express', // Default to express
+      };
     }
 
     const { serverType } = config;

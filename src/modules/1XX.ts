@@ -8,7 +8,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * import { Continue } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(100).json(new Continue("The client should continue with its request.", "https://example.com/docs/continue", "#ref-123"));
+ *   const continue = new Continue()
+ *   res.status(continue.statusCode).json(continue);
  * };
  */
 export class Continue extends HttpResponseBase {
@@ -29,7 +30,8 @@ export class Continue extends HttpResponseBase {
  * import { SwitchingProtocols } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(101).json(new SwitchingProtocols("The server is switching to a new protocol.", "https://example.com/docs/switching-protocols", "#ref-123"));
+ *   const switchingProtocols = new SwitchingProtocols()
+ *   res.status(switchingProtocols.statusCode).json(switchingProtocols);
  * };
  */
 export class SwitchingProtocols extends HttpResponseBase {
@@ -50,7 +52,8 @@ export class SwitchingProtocols extends HttpResponseBase {
  * import { Processing } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(102).json(new Processing("The server is still processing the request.", "https://example.com/docs/processing", "#ref-123"));
+ *   const processing = new Processing()
+ *   res.status(processing.statusCode).json(processing);
  * };
  */
 export class Processing extends HttpResponseBase {
@@ -70,7 +73,8 @@ export class Processing extends HttpResponseBase {
  * import { EarlyHints } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(103).json(new EarlyHints("The server is providing early hints about the response.", "https://example.com/docs/early-hints", "#ref-123"));
+ *  const earlyHints = new EarlyHints()
+ *  res.status(earlyHints.statusCode).json(earlyHints);
  * };
  */
 export class EarlyHints extends HttpResponseBase {

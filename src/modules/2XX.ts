@@ -9,7 +9,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * import { Ok } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(200).json(new Ok("Everything is fine.", "https://example.com/docs/ok", "#ref-123"));
+ *  const ok = new Ok()
+ *  res.status(ok.statusCode).json(ok);
  * };
  */
 export class Ok extends HttpResponseBase {
@@ -29,7 +30,8 @@ export class Ok extends HttpResponseBase {
  * import { Created } from 'nexus-res';
  *
  * export default async (req, res) => {
- *  res.status(201).json(new Created("User created!.", "https://example.com/docs/users", "#ref-123"));
+ *  const created = new Created()
+ *  res.status(created.statusCode).json(created);
  * };
  */
 export class Created extends HttpResponseBase {
@@ -50,7 +52,8 @@ export class Created extends HttpResponseBase {
  * import { Accepted } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(202).json(new Accepted("Request was accepted for processing.", "https://example.com/docs/accepted", "#ref-123"));
+ *   const accepted = new Accepted()
+ *   res.status(accepted.statusCode).json(accepted);
  * };
  */
 export class Accepted extends HttpResponseBase {
@@ -71,7 +74,8 @@ export class Accepted extends HttpResponseBase {
  * import { NonAuthoritativeInformation } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(203).json(new NonAuthoritativeInformation("Information may not be from the original source.", "https://example.com/docs/non-authoritative-information", "#ref-123"));
+ *   const nonAuthoritativeInformation = new NonAuthoritativeInformation()
+ *   res.status(nonAuthoritativeInformation.statusCode).json(nonAuthoritativeInformation);
  * };
  */
 export class NonAuthoritativeInformation extends HttpResponseBase {
@@ -92,7 +96,8 @@ export class NonAuthoritativeInformation extends HttpResponseBase {
  * import { NoContent } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(204).json(new NoContent("Request was successful, but there is no additional information to send back.", "https://example.com/docs/no-content", "#ref-123"));
+ *   const noContent = new NoContent()
+ *   res.status(noContent.statusCode).json(noContent);
  * };
  */
 export class NoContent extends HttpResponseBase {
@@ -113,7 +118,8 @@ export class NoContent extends HttpResponseBase {
  * import { ResetContent } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(205).json(new ResetContent("Request was successful, but the client should reset the document view.", "https://example.com/docs/reset-content", "#ref-123"));
+ *   const resetContent = new ResetContent()
+ *   res.status(resetContent.statusCode).json(resetContent);
  * };
  */
 export class ResetContent extends HttpResponseBase {
@@ -134,7 +140,8 @@ export class ResetContent extends HttpResponseBase {
  * import { PartialContent } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(206).json(new PartialContent("Request was successful, and the response includes only a part of the resource.", "https://example.com/docs/partial-content", "#ref-123"));
+ *   const partialContent = new PartialContent()
+ *   res.status(partialContent.statusCode).json(partialContent);
  * };
  */
 export default class PartialContent extends HttpResponseBase {
@@ -155,7 +162,8 @@ export default class PartialContent extends HttpResponseBase {
  * import { MultiStatus } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(207).json(new MultiStatus("Request was successful, and the response includes multiple statuses.", "https://example.com/docs/multi-status", "#ref-123"));
+ *   const multiStatus = new MultiStatus()
+ *   res.status(multiStatus.statusCode).json(multiStatus);
  * };
  */
 export class MultiStatus extends HttpResponseBase {

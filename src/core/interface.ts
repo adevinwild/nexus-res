@@ -5,19 +5,19 @@
 export interface IHttpResponse {
   /**
    * The HTTP status code.
-   * @type {StatusCode}
+   * @type { StatusCode }
    */
   statusCode: StatusCode;
 
   /**
    * The response message.
-   * @type {string}
+   * @type { string }
    */
   message: string;
 
   /**
-   * **The optional cause of the error.**
-   * @type {string}
+   * **The optional cause message.**
+   * @type { string }
    */
   cause?: string;
 
@@ -28,13 +28,20 @@ export interface IHttpResponse {
    * import { BadRequest } from 'nexus-res';
    *
    * export default async (req, res) => {
-   *  res.status(400).json(new BadRequest("Invalid request format.", { userId: 123 }));
+   *
+   *  const badRequest = new BadRequest({
+   *    metadata: {
+   *      foo: 'bar',
+   *    }
+   *  })
+   *
+   * res.status(badRequest.statusCode).json(badRequest);
    * };
    */
   metadata?: any;
 
   /**
-   * **The optional reference to more detailed documentation or information about the error.**
+   * **The optional reference to more detailed documentation or information about the response.**
    * @type {string}
    */
   reference?: string;
@@ -116,3 +123,7 @@ export type StatusCode =
   | 510
   | 511
   | 520;
+
+export type ConfigFile = {
+  serverType: 'http' | 'express' | 'fastify' | 'koa' | 'hapi';
+};

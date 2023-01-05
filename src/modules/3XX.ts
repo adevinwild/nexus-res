@@ -9,7 +9,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * import { MultipleChoices } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(300).json(new MultipleChoices("The request has multiple options for the response.", "https://example.com/docs/multiple-choices", "#ref-123"));
+ *   const multipleChoices = new MultipleChoices()
+ *   res.status(multipleChoices.statusCode).json(multipleChoices);
  * };
  */
 export class MultipleChoices extends HttpResponseBase {
@@ -30,7 +31,8 @@ export class MultipleChoices extends HttpResponseBase {
  * import { MovedPermanently } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(301).json(new MovedPermanently("The request has been permanently moved to a new location.", "https://example.com/docs/moved-permanently", "#ref-123"));
+ *   const movedPermanently = new MovedPermanently()
+ *   res.status(movedPermanently.statusCode).json(movedPermanently);
  * };
  */
 export class MovedPermanently extends HttpResponseBase {
@@ -51,7 +53,8 @@ export class MovedPermanently extends HttpResponseBase {
  * import { Found } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(302).json(new Found("The request has been temporarily moved to a new location.", "https://example.com/docs/found", "#ref-123"));
+ *   const found = new Found()
+ *   res.status(found.statusCode).json(found);
  * };
  */
 export class Found extends HttpResponseBase {
@@ -72,7 +75,8 @@ export class Found extends HttpResponseBase {
  * import { SeeOther } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(303).json(new SeeOther("The request should be redirected to a different location.", "https://example.com/docs/see-other", "#ref-123"));
+ *   const seeOther = new SeeOther()
+ *   res.status(seeOther.statusCode).json(seeOther);
  * };
  */
 export class SeeOther extends HttpResponseBase {
@@ -93,7 +97,8 @@ export class SeeOther extends HttpResponseBase {
  * import { NotModified } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(304).json(new NotModified("The request has not been modified since the last request.", "https://example.com/docs/not-modified", "#ref-123"));
+ *   const notModified = new NotModified()
+ *   res.status(notModified.statusCode).json(notModified);
  * };
  */
 export class NotModified extends HttpResponseBase {
@@ -114,7 +119,8 @@ export class NotModified extends HttpResponseBase {
  * import { UseProxy } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(305).json(new UseProxy("The request must be made through a proxy.", "https://example.com/docs/use-proxy", "#ref-123"));
+ *   const useProxy = new UseProxy()
+ *   res.status(useProxy.statusCode).json(useProxy);
  * };
  */
 export class UseProxy extends HttpResponseBase {
@@ -134,7 +140,8 @@ export class UseProxy extends HttpResponseBase {
  * import { TemporaryRedirect } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(307).json(new TemporaryRedirect("The request has been temporarily moved to a new location.", "https://example.com/docs/temporary-redirect", "#ref-123"));
+ *   const temporaryRedirect = new TemporaryRedirect()
+ *   res.status(temporaryRedirect.statusCode).json(temporaryRedirect);
  * };
  */
 export class TemporaryRedirect extends HttpResponseBase {
@@ -155,7 +162,8 @@ export class TemporaryRedirect extends HttpResponseBase {
  * import { PermanentRedirect } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(308).json(new PermanentRedirect("The request has been permanently moved to a new location.", "https://example.com/docs/permanent-redirect", "#ref-123"));
+ *   const permanentRedirect = new PermanentRedirect()
+ *   res.status(permanentRedirect.statusCode).json(permanentRedirect);
  * };
  */
 export class PermanentRedirect extends HttpResponseBase {
@@ -176,7 +184,8 @@ export class PermanentRedirect extends HttpResponseBase {
  * import { TooManyRedirects } from 'nexus-res';
  *
  * export default async (req, res) => {
- *   res.status(310).json(new TooManyRedirects("The request has been redirected too many times.", "https://example.com/docs/too-many-redirects", "#ref-123"));
+ *   const tooManyRedirects = new TooManyRedirects()
+ *   res.status(tooManyRedirects.statusCode).json(tooManyRedirects);
  * };
  */
 export class TooManyRedirects extends HttpResponseBase {

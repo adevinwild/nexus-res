@@ -6,6 +6,10 @@
   "files": [
     "dist"
   ],
+  "browser": {
+    "fs": false,
+    "path": false
+  },
   "engines": {
     "node": ">=14"
   },

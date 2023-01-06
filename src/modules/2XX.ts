@@ -3,7 +3,7 @@ import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 200 OK response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Ok
  * @example
  * import { Ok } from 'nexus-res';
@@ -13,8 +13,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  *  res.status(ok.statusCode).json(ok);
  * };
  */
-export class Ok extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Ok<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 200,
       message: 'OK',
@@ -24,7 +24,7 @@ export class Ok extends HttpResponseBase {
 }
 /**
  * Class representing a premade HTTP 201 OK response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Created
  * @example
  * import { Created } from 'nexus-res';
@@ -34,8 +34,8 @@ export class Ok extends HttpResponseBase {
  *  res.status(created.statusCode).json(created);
  * };
  */
-export class Created extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Created<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 201,
       message: 'Created',
@@ -46,7 +46,7 @@ export class Created extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 202 Accepted response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Accepted
  * @example
  * import { Accepted } from 'nexus-res';
@@ -56,8 +56,8 @@ export class Created extends HttpResponseBase {
  *   res.status(accepted.statusCode).json(accepted);
  * };
  */
-export class Accepted extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Accepted<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 202,
       message: 'Accepted',
@@ -68,7 +68,7 @@ export class Accepted extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 203 Non-Authoritative Information response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NonAuthoritativeInformation
  * @example
  * import { NonAuthoritativeInformation } from 'nexus-res';
@@ -78,8 +78,8 @@ export class Accepted extends HttpResponseBase {
  *   res.status(nonAuthoritativeInformation.statusCode).json(nonAuthoritativeInformation);
  * };
  */
-export class NonAuthoritativeInformation extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NonAuthoritativeInformation<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 203,
       message: 'Non-Authoritative Information',
@@ -90,7 +90,7 @@ export class NonAuthoritativeInformation extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 204 No Content response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NoContent
  * @example
  * import { NoContent } from 'nexus-res';
@@ -100,8 +100,8 @@ export class NonAuthoritativeInformation extends HttpResponseBase {
  *   res.status(noContent.statusCode).json(noContent);
  * };
  */
-export class NoContent extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NoContent<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 204,
       message: 'No Content',
@@ -112,7 +112,7 @@ export class NoContent extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 205 Reset Content response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class ResetContent
  * @example
  * import { ResetContent } from 'nexus-res';
@@ -122,8 +122,8 @@ export class NoContent extends HttpResponseBase {
  *   res.status(resetContent.statusCode).json(resetContent);
  * };
  */
-export class ResetContent extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class ResetContent<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 205,
       message: 'Reset Content',
@@ -134,7 +134,7 @@ export class ResetContent extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 206 Partial Content response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PartialContent
  * @example
  * import { PartialContent } from 'nexus-res';
@@ -144,8 +144,8 @@ export class ResetContent extends HttpResponseBase {
  *   res.status(partialContent.statusCode).json(partialContent);
  * };
  */
-export default class PartialContent extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export default class PartialContent<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 206,
       message: 'Partial Content',
@@ -156,7 +156,7 @@ export default class PartialContent extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 207 Multi-Status response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class MultiStatus
  * @example
  * import { MultiStatus } from 'nexus-res';
@@ -166,8 +166,8 @@ export default class PartialContent extends HttpResponseBase {
  *   res.status(multiStatus.statusCode).json(multiStatus);
  * };
  */
-export class MultiStatus extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class MultiStatus<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 207,
       message: 'Multi-Status',

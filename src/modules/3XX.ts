@@ -3,7 +3,7 @@ import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 300 Multiple Choices response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class MultipleChoices
  * @example
  * import { MultipleChoices } from 'nexus-res';
@@ -13,8 +13,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  *   res.status(multipleChoices.statusCode).json(multipleChoices);
  * };
  */
-export class MultipleChoices extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class MultipleChoices<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 300,
       message: 'Multiple Choices',
@@ -25,7 +25,7 @@ export class MultipleChoices extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 301 Moved Permanently response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class MovedPermanently
  * @example
  * import { MovedPermanently } from 'nexus-res';
@@ -35,8 +35,8 @@ export class MultipleChoices extends HttpResponseBase {
  *   res.status(movedPermanently.statusCode).json(movedPermanently);
  * };
  */
-export class MovedPermanently extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class MovedPermanently<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 301,
       message: 'Moved Permanently',
@@ -47,7 +47,7 @@ export class MovedPermanently extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 302 Found response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Found
  * @example
  * import { Found } from 'nexus-res';
@@ -57,8 +57,8 @@ export class MovedPermanently extends HttpResponseBase {
  *   res.status(found.statusCode).json(found);
  * };
  */
-export class Found extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Found<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 302,
       message: 'Found',
@@ -69,7 +69,7 @@ export class Found extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 303 See Other response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class SeeOther
  * @example
  * import { SeeOther } from 'nexus-res';
@@ -79,8 +79,8 @@ export class Found extends HttpResponseBase {
  *   res.status(seeOther.statusCode).json(seeOther);
  * };
  */
-export class SeeOther extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class SeeOther<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 303,
       message: 'See Other',
@@ -91,7 +91,7 @@ export class SeeOther extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 304 Not Modified response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NotModified
  * @example
  * import { NotModified } from 'nexus-res';
@@ -101,8 +101,8 @@ export class SeeOther extends HttpResponseBase {
  *   res.status(notModified.statusCode).json(notModified);
  * };
  */
-export class NotModified extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NotModified<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 304,
       message: 'Not Modified',
@@ -113,7 +113,7 @@ export class NotModified extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 305 Use Proxy response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class UseProxy
  * @example
  * import { UseProxy } from 'nexus-res';
@@ -123,8 +123,8 @@ export class NotModified extends HttpResponseBase {
  *   res.status(useProxy.statusCode).json(useProxy);
  * };
  */
-export class UseProxy extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class UseProxy<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 305,
       message: 'Use Proxy',
@@ -134,7 +134,7 @@ export class UseProxy extends HttpResponseBase {
 }
 /**
  * Class representing a premade HTTP 307 Temporary Redirect response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class TemporaryRedirect
  * @example
  * import { TemporaryRedirect } from 'nexus-res';
@@ -144,8 +144,8 @@ export class UseProxy extends HttpResponseBase {
  *   res.status(temporaryRedirect.statusCode).json(temporaryRedirect);
  * };
  */
-export class TemporaryRedirect extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class TemporaryRedirect<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 307,
       message: 'Temporary Redirect',
@@ -156,7 +156,7 @@ export class TemporaryRedirect extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 308 Permanent Redirect response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PermanentRedirect
  * @example
  * import { PermanentRedirect } from 'nexus-res';
@@ -166,8 +166,8 @@ export class TemporaryRedirect extends HttpResponseBase {
  *   res.status(permanentRedirect.statusCode).json(permanentRedirect);
  * };
  */
-export class PermanentRedirect extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class PermanentRedirect<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 308,
       message: 'Permanent Redirect',
@@ -178,7 +178,7 @@ export class PermanentRedirect extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 310 Too Many Redirects response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class TooManyRedirects
  * @example
  * import { TooManyRedirects } from 'nexus-res';
@@ -188,8 +188,8 @@ export class PermanentRedirect extends HttpResponseBase {
  *   res.status(tooManyRedirects.statusCode).json(tooManyRedirects);
  * };
  */
-export class TooManyRedirects extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class TooManyRedirects<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 310,
       message: 'Too Many Redirects',

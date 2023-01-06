@@ -6,15 +6,15 @@ import { readConfigFile } from './utils';
  * @abstract
  * @class HttpResponseBase
  */
-export default abstract class HttpResponseBase implements IHttpResponse {
+export default abstract class HttpResponseBase<T> implements IHttpResponse<T> {
   readonly statusCode: StatusCode;
   readonly message: string;
   readonly cause?: string;
-  readonly metadata?: any;
+  readonly metadata?: T;
   readonly reference?: string;
   readonly requestId?: string;
 
-  constructor(response: IHttpResponse) {
+  constructor(response: IHttpResponse<T>) {
     this.statusCode = response.statusCode;
     this.message = response.message;
     this.metadata = response.metadata;

@@ -149,8 +149,13 @@ describe('Ok', () => {
       }));
 
       expect(() => ok.send({})).toThrowError(
-        '⛔️ NexusRes | Server type "unsupported" not supported.'
+        `Server type "unsupported" not supported.`
       );
+    });
+
+    it('should accept a generic type', () => {
+      const ok = new Ok<string>();
+      expect(ok).toBeTruthy();
     });
   });
 });

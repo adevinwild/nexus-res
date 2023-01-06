@@ -2,7 +2,7 @@
  * Interface for a premade HTTP response.
  * @interface IHttpResponse
  */
-export interface IHttpResponse {
+export interface IHttpResponse<T> {
   /**
    * The HTTP status code.
    * @type { StatusCode }
@@ -38,7 +38,7 @@ export interface IHttpResponse {
    * res.status(badRequest.statusCode).json(badRequest);
    * };
    */
-  metadata?: any;
+  metadata?: T;
 
   /**
    * **The optional reference to more detailed documentation or information about the response.**
@@ -53,8 +53,8 @@ export interface IHttpResponse {
   requestId?: string;
 }
 
-export type HttpResponseWithDefaults = Omit<
-  IHttpResponse,
+export type HttpResponseWithDefaults<T> = Omit<
+  IHttpResponse<T>,
   'statusCode' | 'message'
 >;
 

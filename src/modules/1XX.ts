@@ -2,7 +2,7 @@ import HttpResponseBase from '../core/HttpResponse';
 import { HttpResponseWithDefaults } from '../core/interface';
 /**
  * Class representing a premade HTTP 100 Continue response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Continue
  * @example
  * import { Continue } from 'nexus-res';
@@ -12,8 +12,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  *   res.status(continue.statusCode).json(continue);
  * };
  */
-export class Continue extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Continue<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 100,
       message: 'Continue',
@@ -24,7 +24,7 @@ export class Continue extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 101 Switching Protocols response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class SwitchingProtocols
  * @example
  * import { SwitchingProtocols } from 'nexus-res';
@@ -34,8 +34,8 @@ export class Continue extends HttpResponseBase {
  *   res.status(switchingProtocols.statusCode).json(switchingProtocols);
  * };
  */
-export class SwitchingProtocols extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class SwitchingProtocols<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 101,
       message: 'Switching Protocols',
@@ -46,7 +46,7 @@ export class SwitchingProtocols extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 102 Processing response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Processing
  * @example
  * import { Processing } from 'nexus-res';
@@ -56,8 +56,8 @@ export class SwitchingProtocols extends HttpResponseBase {
  *   res.status(processing.statusCode).json(processing);
  * };
  */
-export class Processing extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Processing<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 102,
       message: 'Processing',
@@ -67,7 +67,7 @@ export class Processing extends HttpResponseBase {
 }
 /**
  * Class representing a premade HTTP 103 Early Hints response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class EarlyHints
  * @example
  * import { EarlyHints } from 'nexus-res';
@@ -77,8 +77,8 @@ export class Processing extends HttpResponseBase {
  *  res.status(earlyHints.statusCode).json(earlyHints);
  * };
  */
-export class EarlyHints extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class EarlyHints<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 103,
       message: 'Early Hints',

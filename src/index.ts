@@ -1,8 +1,8 @@
 import HttpResponseBase from './core/HttpResponse';
-import { IHttpResponse, StatusCode } from './core/interface';
+import { IHttpResponse } from './core/interface';
 
 // Core
-export { HttpResponseBase, IHttpResponse, StatusCode };
+export { HttpResponseBase, IHttpResponse };
 
 // Modules
 export * from './modules/1XX';

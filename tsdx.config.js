@@ -1,7 +1,5 @@
 module.exports = {
-  rollup: (config, options) => {
-    options.target = 'node';
-    options.env = process.env.NODE_ENV;
+  rollup(config, options) {
     return config;
   },
 };

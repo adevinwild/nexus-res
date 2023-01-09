@@ -5,13 +5,6 @@ import { HttpResponseWithDefaults } from '../core/interface';
  * Class representing a premade HTTP 200 OK response.
  * @<T> extends HttpResponseBase<T>
  * @class Ok
- * @example
- * import { Ok } from 'nexus-res';
- *
- * export default async (req, res) => {
- *  const ok = new Ok()
- *  res.status(ok.statusCode).json(ok);
- * };
  */
 export class Ok<T> extends HttpResponseBase<T> {
   constructor(options?: HttpResponseWithDefaults<T>) {
@@ -26,13 +19,6 @@ export class Ok<T> extends HttpResponseBase<T> {
  * Class representing a premade HTTP 201 OK response.
  * @<T> extends HttpResponseBase<T>
  * @class Created
- * @example
- * import { Created } from 'nexus-res';
- *
- * export default async (req, res) => {
- *  const created = new Created()
- *  res.status(created.statusCode).json(created);
- * };
  */
 export class Created<T> extends HttpResponseBase<T> {
   constructor(options?: HttpResponseWithDefaults<T>) {
@@ -46,15 +32,8 @@ export class Created<T> extends HttpResponseBase<T> {
 
 /**
  * Class representing a premade HTTP 202 Accepted response.
- * @<T> extends HttpResponseBase<T>
+ * @extends HttpResponseBase<T>
  * @class Accepted
- * @example
- * import { Accepted } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const accepted = new Accepted()
- *   res.status(accepted.statusCode).json(accepted);
- * };
  */
 export class Accepted<T> extends HttpResponseBase<T> {
   constructor(options?: HttpResponseWithDefaults<T>) {
@@ -70,13 +49,6 @@ export class Accepted<T> extends HttpResponseBase<T> {
  * Class representing a premade HTTP 203 Non-Authoritative Information response.
  * @<T> extends HttpResponseBase<T>
  * @class NonAuthoritativeInformation
- * @example
- * import { NonAuthoritativeInformation } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const nonAuthoritativeInformation = new NonAuthoritativeInformation()
- *   res.status(nonAuthoritativeInformation.statusCode).json(nonAuthoritativeInformation);
- * };
  */
 export class NonAuthoritativeInformation<T> extends HttpResponseBase<T> {
   constructor(options?: HttpResponseWithDefaults<T>) {

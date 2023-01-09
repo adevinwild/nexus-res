@@ -3,7 +3,7 @@ import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 400 Bad Request response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class BadRequest
  * @example
  * import { BadRequest } from 'nexus-res';
@@ -13,8 +13,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  *   res.status(badRequest.statusCode).json(badRequest);
  * };
  */
-export class BadRequest extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class BadRequest<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 400,
       message: 'Bad Request',
@@ -25,7 +25,7 @@ export class BadRequest extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 401 Unauthorized response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Unauthorized
  * @example
  * import { Unauthorized } from 'nexus-res';
@@ -35,8 +35,8 @@ export class BadRequest extends HttpResponseBase {
  *   res.status(unauthorized.statusCode).json(unauthorized);
  * };
  */
-export class Unauthorized extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Unauthorized<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 401,
       message: 'Unauthorized',
@@ -47,7 +47,7 @@ export class Unauthorized extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 402 Payment Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PaymentRequired
  * @example
  * import { PaymentRequired } from 'nexus-res';
@@ -57,8 +57,8 @@ export class Unauthorized extends HttpResponseBase {
  *   res.status(paymentRequired.statusCode).json(paymentRequired);
  * };
  */
-export class PaymentRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class PaymentRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 402,
       message: 'Payment Required',
@@ -69,7 +69,7 @@ export class PaymentRequired extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 403 Forbidden response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Forbidden
  * @example
  * import { Forbidden } from 'nexus-res';
@@ -79,8 +79,8 @@ export class PaymentRequired extends HttpResponseBase {
  *   res.status(forbidden.statusCode).json(forbidden);
  * };
  */
-export class Forbidden extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Forbidden<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 403,
       message: 'Forbidden',
@@ -91,7 +91,7 @@ export class Forbidden extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 404 Not Found response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NotFound
  * @example
  * import { NotFound } from 'nexus-res';
@@ -101,8 +101,8 @@ export class Forbidden extends HttpResponseBase {
  *   res.status(notFound.statusCode).json(notFound);
  * };
  */
-export class NotFound extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NotFound<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 404,
       message: 'Not Found',
@@ -113,7 +113,7 @@ export class NotFound extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 405 Method Not Allowed response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class MethodNotAllowed
  * @example
  * import { MethodNotAllowed } from 'nexus-res';
@@ -124,8 +124,8 @@ export class NotFound extends HttpResponseBase {
  * };
  *
  */
-export class MethodNotAllowed extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class MethodNotAllowed<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 405,
       message: 'Method Not Allowed',
@@ -136,7 +136,7 @@ export class MethodNotAllowed extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 406 Not Acceptable response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NotAcceptable
  * @example
  * import { NotAcceptable } from 'nexus-res';
@@ -148,8 +148,8 @@ export class MethodNotAllowed extends HttpResponseBase {
  *
  */
 
-export class NotAcceptable extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NotAcceptable<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 406,
       message: 'Not Acceptable',
@@ -160,7 +160,7 @@ export class NotAcceptable extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 407 Proxy Authentication Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class ProxyAuthenticationRequired
  * @example
  * import { ProxyAuthenticationRequired } from 'nexus-res';
@@ -171,8 +171,8 @@ export class NotAcceptable extends HttpResponseBase {
  * };
  *
  */
-export class ProxyAuthenticationRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class ProxyAuthenticationRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 407,
       message: 'Proxy Authentication Required',
@@ -183,7 +183,7 @@ export class ProxyAuthenticationRequired extends HttpResponseBase {
 
 /**
  *  Class representing a premade HTTP 408 Request Timeout response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class RequestTimeout
  * @example
  * import { RequestTimeout } from 'nexus-res';
@@ -194,8 +194,8 @@ export class ProxyAuthenticationRequired extends HttpResponseBase {
  * };
  *
  */
-export class RequestTimeout extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class RequestTimeout<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 408,
       message: 'Request Timeout',
@@ -206,7 +206,7 @@ export class RequestTimeout extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 409 Conflict response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Conflict
  * @example
  * import { Conflict } from 'nexus-res';
@@ -217,8 +217,8 @@ export class RequestTimeout extends HttpResponseBase {
  * };
  *
  */
-export class Conflict extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Conflict<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 409,
       message: 'Conflict',
@@ -229,7 +229,7 @@ export class Conflict extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 410 Gone response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Gone
  * @example
  * import { Gone } from 'nexus-res';
@@ -240,8 +240,8 @@ export class Conflict extends HttpResponseBase {
  * };
  *
  */
-export class Gone extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Gone<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 410,
       message: 'Gone',
@@ -252,7 +252,7 @@ export class Gone extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 411 Length Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class LengthRequired
  * @example
  * import { LengthRequired } from 'nexus-res';
@@ -263,8 +263,8 @@ export class Gone extends HttpResponseBase {
  * };
  *
  */
-export class LengthRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class LengthRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 411,
       message: 'Length Required',
@@ -275,7 +275,7 @@ export class LengthRequired extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 412 Precondition Failed response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PreconditionFailed
  * @example
  * import { PreconditionFailed } from 'nexus-res';
@@ -286,8 +286,8 @@ export class LengthRequired extends HttpResponseBase {
  * };
  *
  */
-export class PreconditionFailed extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class PreconditionFailed<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 412,
       message: 'Precondition Failed',
@@ -298,7 +298,7 @@ export class PreconditionFailed extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 413 Payload Too Large response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PayloadTooLarge
  * @example
  * import { PayloadTooLarge } from 'nexus-res';
@@ -309,8 +309,8 @@ export class PreconditionFailed extends HttpResponseBase {
  * };
  *
  */
-export class PayloadTooLarge extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class PayloadTooLarge<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 413,
       message: 'Payload Too Large',
@@ -321,7 +321,7 @@ export class PayloadTooLarge extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 414 URI Too Long response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class URITooLong
  * @example
  * import { URITooLong } from 'nexus-res';
@@ -332,8 +332,8 @@ export class PayloadTooLarge extends HttpResponseBase {
  * };
  *
  */
-export class URITooLong extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class URITooLong<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 414,
       message: 'URI Too Long',
@@ -344,7 +344,7 @@ export class URITooLong extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 415 Unsupported Media Type response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Unsupported
  * @example
  * import { Unsupported } from 'nexus-res';
@@ -355,8 +355,8 @@ export class URITooLong extends HttpResponseBase {
  * };
  *
  */
-export class Unsupported extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Unsupported<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 415,
       message: 'Unsupported Media Type',
@@ -367,7 +367,7 @@ export class Unsupported extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 416 Range Not Satisfiable response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class RangeNotSatisfiable
  * @example
  * import { RangeNotSatisfiable } from 'nexus-res';
@@ -378,8 +378,8 @@ export class Unsupported extends HttpResponseBase {
  * };
  *
  */
-export class RangeNotSatisfiable extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class RangeNotSatisfiable<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 416,
       message: 'Range Not Satisfiable',
@@ -390,7 +390,7 @@ export class RangeNotSatisfiable extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 417 Expectation Failed response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class ExpectationFailed
  * @example
  * import { ExpectationFailed } from 'nexus-res';
@@ -401,8 +401,8 @@ export class RangeNotSatisfiable extends HttpResponseBase {
  * };
  *
  */
-export class ExpectationFailed extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class ExpectationFailed<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 417,
       message: 'Expectation Failed',
@@ -413,7 +413,7 @@ export class ExpectationFailed extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 418 I'm a teapot response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class ImATeapot
  * @example
  * import { ImATeapot } from 'nexus-res';
@@ -424,8 +424,8 @@ export class ExpectationFailed extends HttpResponseBase {
  * };
  *
  */
-export class ImATeapot extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class ImATeapot<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 418,
       message: "I'm a teapot",
@@ -436,7 +436,7 @@ export class ImATeapot extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 421 Misdirected Request response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class MisdirectedRequest
  * @example
  * import { MisdirectedRequest } from 'nexus-res';
@@ -447,8 +447,8 @@ export class ImATeapot extends HttpResponseBase {
  * };
  *
  */
-export class MisdirectedRequest extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class MisdirectedRequest<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 421,
       message: 'Misdirected Request',
@@ -459,7 +459,7 @@ export class MisdirectedRequest extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 422 Unprocessable Entity response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class UnprocessableEntity
  * @example
  * import { UnprocessableEntity } from 'nexus-res';
@@ -470,8 +470,8 @@ export class MisdirectedRequest extends HttpResponseBase {
  * };
  *
  */
-export class UnprocessableEntity extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class UnprocessableEntity<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 422,
       message: 'Unprocessable Entity',
@@ -482,7 +482,7 @@ export class UnprocessableEntity extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 423 Locked response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Locked
  * @example
  * import { Locked } from 'nexus-res';
@@ -493,8 +493,8 @@ export class UnprocessableEntity extends HttpResponseBase {
  * };
  *
  */
-export class Locked extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class Locked<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 423,
       message: 'Locked',
@@ -505,7 +505,7 @@ export class Locked extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 424 Failed Dependency response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class FailedDependency
  * @example
  * import { FailedDependency } from 'nexus-res';
@@ -516,8 +516,8 @@ export class Locked extends HttpResponseBase {
  * };
  *
  */
-export class FailedDependency extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class FailedDependency<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 424,
       message: 'Failed Dependency',
@@ -528,7 +528,7 @@ export class FailedDependency extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 425 Too Early response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class TooEarly
  * @example
  * import { TooEarly } from 'nexus-res';
@@ -538,8 +538,8 @@ export class FailedDependency extends HttpResponseBase {
  *   res.status(tooEarly.statusCode).json(tooEarly);
  *
  */
-export class TooEarly extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class TooEarly<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 425,
       message: 'Too Early',
@@ -550,7 +550,7 @@ export class TooEarly extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 426 Upgrade Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class UpgradeRequired
  * @example
  * import { UpgradeRequired } from 'nexus-res';
@@ -560,8 +560,8 @@ export class TooEarly extends HttpResponseBase {
  *   res.status(upgradeRequired.statusCode).json(upgradeRequired);
  *
  */
-export class UpgradeRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class UpgradeRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 426,
       message: 'Upgrade Required',
@@ -572,7 +572,7 @@ export class UpgradeRequired extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 428 Precondition Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class PreconditionRequired
  * @example
  * import { PreconditionRequired } from 'nexus-res';
@@ -582,8 +582,8 @@ export class UpgradeRequired extends HttpResponseBase {
  *   res.status(preconditionRequired.statusCode).json(preconditionRequired);
  *
  */
-export class PreconditionRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class PreconditionRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 428,
       message: 'Precondition Required',
@@ -594,7 +594,7 @@ export class PreconditionRequired extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 429 Too Many Requests response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class TooManyRequests
  * @example
  * import { TooManyRequests } from 'nexus-res';
@@ -604,8 +604,8 @@ export class PreconditionRequired extends HttpResponseBase {
  *   res.status(tooManyRequests.statusCode).json(tooManyRequests);
  *
  */
-export class TooManyRequests extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class TooManyRequests<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 429,
       message: 'Too Many Requests',
@@ -616,7 +616,7 @@ export class TooManyRequests extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 431 Request Header Fields Too Large response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class RequestHeaderFieldsTooLarge
  * @example
  * import { RequestHeaderFieldsTooLarge } from 'nexus-res';
@@ -625,8 +625,8 @@ export class TooManyRequests extends HttpResponseBase {
  *   res.status(requestHeaderFieldsTooLarge.statusCode).json(requestHeaderFieldsTooLarge);
  *
  */
-export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class RequestHeaderFieldsTooLarge<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 431,
       message: 'Request Header Fields Too Large',
@@ -637,7 +637,7 @@ export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 451 Unavailable For Legal Reasons response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class Unavailable
  * @example
  * import { UnavailableForLegalReasons } from 'nexus-res';
@@ -647,8 +647,8 @@ export class RequestHeaderFieldsTooLarge extends HttpResponseBase {
  *   res.status(unavailableForLegalReasons.statusCode).json(unavailableForLegalReasons);
  *
  */
-export class UnavailableForLegalReasons extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class UnavailableForLegalReasons<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 451,
       message: 'Unavailable For Legal Reasons',

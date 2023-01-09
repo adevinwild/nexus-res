@@ -1,20 +1,28 @@
-import { ConfigFile, IHttpResponse, StatusCode } from './interface';
-import { readConfigFile } from './utils';
+import ConfigFileFetcher from './ConfigFileFetcher';
+import {
+  ExpressRes,
+  FastifyRes,
+  HapiRes,
+  HttpRes,
+  IHttpResponse,
+  KoaRes,
+} from './interface';
 
 /**
  * Base class for a premade HTTP response.
  * @abstract
  * @class HttpResponseBase
+ * @implements {IHttpResponse<T>}
  */
-export default abstract class HttpResponseBase implements IHttpResponse {
-  readonly statusCode: StatusCode;
+export default abstract class HttpResponseBase<T> {
+  readonly statusCode: number;
   readonly message: string;
   readonly cause?: string;
-  readonly metadata?: any;
+  readonly metadata?: T;
   readonly reference?: string;
   readonly requestId?: string;
 
-  constructor(response: IHttpResponse) {
+  constructor(response: IHttpResponse<T>) {
     this.statusCode = response.statusCode;
     this.message = response.message;
     this.metadata = response.metadata;
@@ -23,34 +31,38 @@ export default abstract class HttpResponseBase implements IHttpResponse {
     this.reference = response.reference;
   }
 
-  public send(res: any) {
-    let config = readConfigFile();
+  public async send(serverResponse: unknown): Promise<unknown> {
+    const config = await new ConfigFileFetcher().fetchConfig();
 
-    if (!config) {
-      config = {
-        serverType: 'express', // Default to express
-      };
-    }
-
-    const serverResponses: Record<ConfigFile['serverType'], () => any> = {
-      http: () =>
-        res
+    switch (config.serverType) {
+      case 'http': {
+        const res = serverResponse as HttpRes;
+        return res
           .writeHead(this.statusCode, { 'Content-Type': 'application/json' })
-          .end(this.toString()),
-      express: () => res.status(this.statusCode).json(this),
-      fastify: () => res.code(this.statusCode).send(this),
-      koa: () => {
+          .end(this.toString());
+      }
+      case 'express': {
+        const res = serverResponse as ExpressRes;
+        return res.status(this.statusCode).json(this);
+      }
+      case 'fastify': {
+        const res = serverResponse as FastifyRes;
+        return res.code(this.statusCode).send(this);
+      }
+      case 'koa': {
+        const res = serverResponse as KoaRes;
         res.status = this.statusCode;
         res.body = this;
-      },
-      hapi: () => res.response(this).code(this.statusCode),
-    };
-
-    if (!serverResponses[config.serverType]) {
-      throw new Error(`Server type "${config.serverType}" not supported.`);
+        return res;
+      }
+      case 'hapi': {
+        const res = serverResponse as HapiRes;
+        return res.response(this).code(this.statusCode);
+      }
+      default: {
+        throw new Error(`Server type "${config.serverType}" not supported.`);
+      }
     }
-
-    return serverResponses[config.serverType]();
   }
 
   public toString() {

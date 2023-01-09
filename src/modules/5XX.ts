@@ -3,7 +3,7 @@ import { HttpResponseWithDefaults } from '../core/interface';
 
 /**
  * Class representing a premade HTTP 400 Bad Request response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class InternalServerError
  * @example
  * import { InternalServerError } from 'nexus-res';
@@ -13,8 +13,8 @@ import { HttpResponseWithDefaults } from '../core/interface';
  *   res.status(internalServerError.statusCode).json(internalServerError);
  * };
  */
-export class InternalServerError extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class InternalServerError<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 500,
       message: 'Internal server error',
@@ -25,7 +25,7 @@ export class InternalServerError extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 501 Not Implemented response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NotImplemented
  * @example
  * import { NotImplemented } from 'nexus-res';
@@ -36,8 +36,8 @@ export class InternalServerError extends HttpResponseBase {
  * };
  *
  */
-export class NotImplemented extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NotImplemented<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 501,
       message: 'Not implemented',
@@ -48,7 +48,7 @@ export class NotImplemented extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 502 Bad Gateway response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class BadGateway
  * @example
  * import { BadGateway } from 'nexus-res';
@@ -58,8 +58,8 @@ export class NotImplemented extends HttpResponseBase {
  *   res.status(badGateway.statusCode).json(badGateway);
  *
  */
-export class BadGateway extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class BadGateway<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 502,
       message: 'Bad gateway',
@@ -70,7 +70,7 @@ export class BadGateway extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 503 Service Unavailable response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class ServiceUnavailable
  * @example
  * import { ServiceUnavailable } from 'nexus-res';
@@ -80,8 +80,8 @@ export class BadGateway extends HttpResponseBase {
  *   res.status(serviceUnavailable.statusCode).json(serviceUnavailable);
  *
  */
-export class ServiceUnavailable extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class ServiceUnavailable<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 503,
       message: 'Service unavailable',
@@ -92,7 +92,7 @@ export class ServiceUnavailable extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 504 Gateway Timeout response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class GatewayTimeout
  * @example
  * import { GatewayTimeout } from 'nexus-res';
@@ -102,8 +102,8 @@ export class ServiceUnavailable extends HttpResponseBase {
  *   res.status(gatewayTimeout.statusCode).json(gatewayTimeout);
  *
  */
-export class GatewayTimeout extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class GatewayTimeout<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 504,
       message: 'Gateway timeout',
@@ -114,7 +114,7 @@ export class GatewayTimeout extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 505 HTTP Version Not Supported response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class HttpVersionNotSupported
  * @example
  * import { HttpVersionNotSupported } from 'nexus-res';
@@ -124,8 +124,8 @@ export class GatewayTimeout extends HttpResponseBase {
  *   res.status(httpVersionNotSupported.statusCode).json(httpVersionNotSupported);
  *
  */
-export class HttpVersionNotSupported extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class HttpVersionNotSupported<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 505,
       message: 'HTTP version not supported',
@@ -136,7 +136,7 @@ export class HttpVersionNotSupported extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 506 Variant Also Negotiates response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class VariantAlsoNegotiates
  * @example
  * import { VariantAlsoNegotiates } from 'nexus-res';
@@ -146,8 +146,8 @@ export class HttpVersionNotSupported extends HttpResponseBase {
  *   res.status(variantAlsoNegotiates.statusCode).json(variantAlsoNegotiates);
  *
  */
-export class VariantAlsoNegotiates extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class VariantAlsoNegotiates<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 506,
       message: 'Variant also negotiates',
@@ -158,7 +158,7 @@ export class VariantAlsoNegotiates extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 507 Insufficient Storage response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class InsufficientStorage
  * @example
  * import { InsufficientStorage } from 'nexus-res';
@@ -168,8 +168,8 @@ export class VariantAlsoNegotiates extends HttpResponseBase {
  *   res.status(insufficientStorage.statusCode).json(insufficientStorage);
  *
  */
-export class InsufficientStorage extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class InsufficientStorage<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 507,
       message: 'Insufficient storage',
@@ -180,7 +180,7 @@ export class InsufficientStorage extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 508 Loop Detected response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class LoopDetected
  * @example
  * import { LoopDetected } from 'nexus-res';
@@ -189,8 +189,8 @@ export class InsufficientStorage extends HttpResponseBase {
  *   res.status(loopDetected.statusCode).json(loopDetected);
  *
  */
-export class LoopDetected extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class LoopDetected<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 508,
       message: 'Loop detected',
@@ -201,7 +201,7 @@ export class LoopDetected extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 510 Not Extended response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NotExtended
  * @example
  * import { NotExtended } from 'nexus-res';
@@ -211,8 +211,8 @@ export class LoopDetected extends HttpResponseBase {
  *   res.status(notExtended.statusCode).json(notExtended);
  *
  */
-export class NotExtended extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NotExtended<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 510,
       message: 'Not extended',
@@ -223,7 +223,7 @@ export class NotExtended extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 511 Network Authentication Required response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class NetworkAuthenticationRequired
  * @example
  * import { NetworkAuthenticationRequired } from 'nexus-res';
@@ -233,8 +233,8 @@ export class NotExtended extends HttpResponseBase {
  *   res.status(networkAuthenticationRequired.statusCode).json(networkAuthenticationRequired);
  *
  */
-export class NetworkAuthenticationRequired extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class NetworkAuthenticationRequired<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 511,
       message: 'Network authentication required',
@@ -245,7 +245,7 @@ export class NetworkAuthenticationRequired extends HttpResponseBase {
 
 /**
  * Class representing a premade HTTP 520 Unknown Error response.
- * @extends HttpResponseBase
+ * @<T> extends HttpResponseBase<T>
  * @class UnknownError
  * @example
  * import { UnknownError } from 'nexus-res';
@@ -255,8 +255,8 @@ export class NetworkAuthenticationRequired extends HttpResponseBase {
  *   res.status(unknownError.statusCode).json(unknownError);
  *
  */
-export class UnknownError extends HttpResponseBase {
-  constructor(options?: HttpResponseWithDefaults) {
+export class UnknownError<T> extends HttpResponseBase<T> {
+  constructor(options?: HttpResponseWithDefaults<T>) {
     super({
       statusCode: 520,
       message: 'Unknown error',

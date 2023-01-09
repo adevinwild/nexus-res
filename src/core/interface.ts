@@ -1,13 +1,13 @@
 /**
  * Interface for a premade HTTP response.
- * @interface IHttpResponse
+ * @interface IHttpResponse<T>
  */
-export interface IHttpResponse {
+export interface IHttpResponse<T> {
   /**
    * The HTTP status code.
-   * @type { StatusCode }
+   * @type { number }
    */
-  statusCode: StatusCode;
+  statusCode: number;
 
   /**
    * The response message.
@@ -38,7 +38,7 @@ export interface IHttpResponse {
    * res.status(badRequest.statusCode).json(badRequest);
    * };
    */
-  metadata?: any;
+  metadata?: T;
 
   /**
    * **The optional reference to more detailed documentation or information about the response.**
@@ -53,77 +53,36 @@ export interface IHttpResponse {
   requestId?: string;
 }
 
-export type HttpResponseWithDefaults = Omit<
-  IHttpResponse,
+export type HttpResponseWithDefaults<T> = Omit<
+  IHttpResponse<T>,
   'statusCode' | 'message'
 >;
 
-export type StatusCode =
-  | 100
-  | 101
-  | 102
-  | 103
-  | 200
-  | 201
-  | 202
-  | 203
-  | 204
-  | 205
-  | 206
-  | 207
-  | 208
-  | 226
-  | 300
-  | 301
-  | 302
-  | 303
-  | 304
-  | 305
-  | 307
-  | 308
-  | 310
-  | 400
-  | 401
-  | 402
-  | 403
-  | 404
-  | 405
-  | 406
-  | 407
-  | 408
-  | 409
-  | 410
-  | 411
-  | 412
-  | 413
-  | 414
-  | 415
-  | 416
-  | 417
-  | 418
-  | 421
-  | 422
-  | 423
-  | 424
-  | 425
-  | 426
-  | 428
-  | 429
-  | 431
-  | 451
-  | 500
-  | 501
-  | 502
-  | 503
-  | 504
-  | 505
-  | 506
-  | 507
-  | 508
-  | 510
-  | 511
-  | 520;
-
 export type ConfigFile = {
   serverType: 'http' | 'express' | 'fastify' | 'koa' | 'hapi';
+};
+
+export type ExpressRes = {
+  status: (code: number) => ExpressRes;
+  json: (data: any) => any;
+};
+
+export type HttpRes = {
+  writeHead: (code: number, headers: Record<string, string>) => HttpRes;
+  end: (data: any) => any;
+};
+
+export type FastifyRes = {
+  code: (code: number) => FastifyRes;
+  send: (data: any) => any;
+};
+
+export type KoaRes = {
+  status: number;
+  body: any;
+};
+
+export type HapiRes = {
+  response: (data: any) => HapiRes;
+  code: (code: number) => HapiRes;
 };

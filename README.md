@@ -37,6 +37,12 @@
 
 <br />
 
+## 🤝 Contributing
+
+We welcome contributions to `nexus-res`! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.
+
+<br  />
+
 ## Installation
 
 To install NexusRes, simply run the following command in your terminal:
@@ -77,13 +83,13 @@ export default async (req, res) => {
     requestId: '#ref-123',
   });
 
-  return ok.send(res);
-  // ☝️ This will send the response with the appropriate status code, reducing boilerplate code
+  await ok.send(res);
+  // ☝️ This will send the response with the appropriate status code based on your config
 };
 ```
 
 <br />
 
-## 🤝 Contributing
+## 📖 Documentation
 
-We welcome contributions to `nexus-res`! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.
+## You access the documentation [by clicking here](https://github.com/adevinwild/nexus-res/wiki/Wiki-nexus-res) 👈

@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" test>
   <a href="https://www.npmjs.com/package/nexus-res">
     <img alt="nexus-res" src="./assets/logo.png" width="192" />
   </a>

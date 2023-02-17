@@ -97,6 +97,11 @@ export function createHttpResponse<T>(response: HttpResponseOptions<T>) {
   return new HttpResponse(response);
 }
 
+export type WithoutStatusAndMessage<T> = Omit<
+  HttpResponseOptions<T>,
+  'statusCode' | 'message'
+>;
+
 export type ExpressRes = {
   status: (code: number) => ExpressRes;
   json: <T>(data: T) => any;

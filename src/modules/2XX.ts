@@ -1,13 +1,18 @@
-import { HttpResponseOptions, createHttpResponse } from '../core/HttpResponse';
-
+import {
+  createHttpResponse,
+  WithoutStatusAndMessage,
+} from '../core/HttpResponse';
 /**
  * ## 200 OK
  * The request has succeeded.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
  */
-export const Ok = <T>(options: HttpResponseOptions<T>) => {
+export const Ok = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
-    ...options,
+    metadata: options?.metadata,
+    cause: options?.cause,
+    reference: options?.reference,
+    requestId: options?.requestId,
     statusCode: 200,
     message: 'Ok',
   });
@@ -18,7 +23,7 @@ export const Ok = <T>(options: HttpResponseOptions<T>) => {
  * The request has succeeded and a new resource has been created as a result.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
  */
-export const Created = <T>(options: HttpResponseOptions<T>) => {
+export const Created = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 201,
@@ -31,7 +36,7 @@ export const Created = <T>(options: HttpResponseOptions<T>) => {
  * The request has been received but not yet acted upon. It is non-committal, meaning that there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202
  */
-export const Accepted = <T>(options: HttpResponseOptions<T>) => {
+export const Accepted = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 202,
@@ -45,7 +50,7 @@ export const Accepted = <T>(options: HttpResponseOptions<T>) => {
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/203
  */
 export const NonAuthoritativeInformation = <T>(
-  options: HttpResponseOptions<T>
+  options: WithoutStatusAndMessage<T>
 ) => {
   return createHttpResponse({
     ...options,
@@ -58,7 +63,7 @@ export const NonAuthoritativeInformation = <T>(
  * The server successfully processed the request and is not returning any content.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
  */
-export const NoContent = <T>(options: HttpResponseOptions<T>) => {
+export const NoContent = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 204,
@@ -71,7 +76,7 @@ export const NoContent = <T>(options: HttpResponseOptions<T>) => {
  * The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/205
  */
-export const ResetContent = <T>(options: HttpResponseOptions<T>) => {
+export const ResetContent = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 205,
@@ -84,7 +89,7 @@ export const ResetContent = <T>(options: HttpResponseOptions<T>) => {
  * The server is delivering only part of the resource (byte serving) due to a range header sent by the client. The range header is used by HTTP clients to enable resuming of interrupted downloads, or split a download into multiple simultaneous streams.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/206
  */
-export const PartialContent = <T>(options: HttpResponseOptions<T>) => {
+export const PartialContent = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 206,
@@ -97,7 +102,7 @@ export const PartialContent = <T>(options: HttpResponseOptions<T>) => {
  * The message body that follows is by default an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/207
  */
-export const MultiStatus = <T>(options: HttpResponseOptions<T>) => {
+export const MultiStatus = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 207,

@@ -1,11 +1,15 @@
-import { createHttpResponse, HttpResponseOptions } from '../core/HttpResponse';
-
+import {
+  createHttpResponse,
+  WithoutStatusAndMessage,
+} from '../core/HttpResponse';
 /**
  * ## 500 Internal Server Error
  * The server has encountered a situation it doesn't know how to handle.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
  */
-export const InternalServerError = <T>(options: HttpResponseOptions<T>) => {
+export const InternalServerError = <T>(
+  options?: WithoutStatusAndMessage<T>
+) => {
   return createHttpResponse({
     ...options,
     statusCode: 500,
@@ -18,7 +22,7 @@ export const InternalServerError = <T>(options: HttpResponseOptions<T>) => {
  * The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501
  */
-export const NotImplemented = <T>(options: HttpResponseOptions<T>) => {
+export const NotImplemented = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 501,
@@ -31,7 +35,7 @@ export const NotImplemented = <T>(options: HttpResponseOptions<T>) => {
  * This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
  */
-export const BadGateway = <T>(options: HttpResponseOptions<T>) => {
+export const BadGateway = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 502,
@@ -44,7 +48,7 @@ export const BadGateway = <T>(options: HttpResponseOptions<T>) => {
  * The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This responses should be used for temporary conditions and the Retry-After: HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
  */
-export const ServiceUnavailable = <T>(options: HttpResponseOptions<T>) => {
+export const ServiceUnavailable = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 503,
@@ -57,7 +61,7 @@ export const ServiceUnavailable = <T>(options: HttpResponseOptions<T>) => {
  * This error response is given when the server is acting as a gateway and cannot get a response in time.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
  */
-export const GatewayTimeout = <T>(options: HttpResponseOptions<T>) => {
+export const GatewayTimeout = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 504,
@@ -70,7 +74,9 @@ export const GatewayTimeout = <T>(options: HttpResponseOptions<T>) => {
  * The HTTP version used in the request is not supported by the server.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
  */
-export const HttpVersionNotSupported = <T>(options: HttpResponseOptions<T>) => {
+export const HttpVersionNotSupported = <T>(
+  options?: WithoutStatusAndMessage<T>
+) => {
   return createHttpResponse({
     ...options,
     statusCode: 505,
@@ -82,7 +88,9 @@ export const HttpVersionNotSupported = <T>(options: HttpResponseOptions<T>) => {
  * ## 506 Variant Also Negotiates
  * Transparent content negotiation for the request results in a circular reference.
  */
-export const VariantAlsoNegotiates = <T>(options: HttpResponseOptions<T>) => {
+export const VariantAlsoNegotiates = <T>(
+  options?: WithoutStatusAndMessage<T>
+) => {
   return createHttpResponse({
     ...options,
     statusCode: 506,
@@ -94,7 +102,9 @@ export const VariantAlsoNegotiates = <T>(options: HttpResponseOptions<T>) => {
  * ## 507 Insufficient Storage
  * The server is unable to store the representation needed to complete the request.
  */
-export const InsufficientStorage = <T>(options: HttpResponseOptions<T>) => {
+export const InsufficientStorage = <T>(
+  options?: WithoutStatusAndMessage<T>
+) => {
   return createHttpResponse({
     ...options,
     statusCode: 507,
@@ -107,7 +117,7 @@ export const InsufficientStorage = <T>(options: HttpResponseOptions<T>) => {
  * The server detected an infinite loop while processing the request.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
  */
-export const LoopDetected = <T>(options: HttpResponseOptions<T>) => {
+export const LoopDetected = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 508,
@@ -119,7 +129,7 @@ export const LoopDetected = <T>(options: HttpResponseOptions<T>) => {
  * This status code, while used by many servers, is not specified in any RFCs.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/509
  */
-export const NotExtended = <T>(options: HttpResponseOptions<T>) => {
+export const NotExtended = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 510,
@@ -133,7 +143,7 @@ export const NotExtended = <T>(options: HttpResponseOptions<T>) => {
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/511
  */
 export const NetworkAuthenticationRequired = <T>(
-  options: HttpResponseOptions<T>
+  options: WithoutStatusAndMessage<T>
 ) => {
   return createHttpResponse({
     ...options,
@@ -147,7 +157,7 @@ export const NetworkAuthenticationRequired = <T>(
  * The 520 error is used as a "catch-all response for when the origin server returns something unexpected", listing connection resets, large headers, and empty or invalid responses as common triggers.
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520
  */
-export const UnknownError = <T>(options: HttpResponseOptions<T>) => {
+export const UnknownError = <T>(options?: WithoutStatusAndMessage<T>) => {
   return createHttpResponse({
     ...options,
     statusCode: 520,

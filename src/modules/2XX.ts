@@ -1,149 +1,106 @@
-import HttpResponseBase from '../core/HttpResponse';
-import { HttpResponseWithDefaults } from '../core/interface';
+import { HttpResponseOptions, createHttpResponse } from '../core/HttpResponse';
 
 /**
- * Class representing a premade HTTP 200 OK response.
- * @<T> extends HttpResponseBase<T>
- * @class Ok
+ * ## 200 OK
+ * The request has succeeded.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200
  */
-export class Ok<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 200,
-      message: 'OK',
-      ...options,
-    });
-  }
-}
-/**
- * Class representing a premade HTTP 201 OK response.
- * @<T> extends HttpResponseBase<T>
- * @class Created
- */
-export class Created<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 201,
-      message: 'Created',
-      ...options,
-    });
-  }
-}
+export const Ok = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 200,
+    message: 'Ok',
+  });
+};
 
 /**
- * Class representing a premade HTTP 202 Accepted response.
- * @extends HttpResponseBase<T>
- * @class Accepted
+ * ## 201 Created
+ * The request has succeeded and a new resource has been created as a result.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201
  */
-export class Accepted<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 202,
-      message: 'Accepted',
-      ...options,
-    });
-  }
-}
+export const Created = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 201,
+    message: 'Created',
+  });
+};
 
 /**
- * Class representing a premade HTTP 203 Non-Authoritative Information response.
- * @<T> extends HttpResponseBase<T>
- * @class NonAuthoritativeInformation
+ * ## 202 Accepted
+ * The request has been received but not yet acted upon. It is non-committal, meaning that there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202
  */
-export class NonAuthoritativeInformation<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 203,
-      message: 'Non-Authoritative Information',
-      ...options,
-    });
-  }
-}
+export const Accepted = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 202,
+    message: 'Accepted',
+  });
+};
 
 /**
- * Class representing a premade HTTP 204 No Content response.
- * @<T> extends HttpResponseBase<T>
- * @class NoContent
- * @example
- * import { NoContent } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const noContent = new NoContent()
- *   res.status(noContent.statusCode).json(noContent);
- * };
+ * ## 203 Non-Authoritative Information
+ * The server is a transforming proxy (e.g. a Web accelerator) that received a 200 OK from its origin, but is returning a modified version of the origin's response.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/203
  */
-export class NoContent<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 204,
-      message: 'No Content',
-      ...options,
-    });
-  }
-}
+export const NonAuthoritativeInformation = <T>(
+  options: HttpResponseOptions<T>
+) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 203,
+    message: 'Non-Authoritative Information',
+  });
+};
+/**
+ * ## 204 No Content
+ * The server successfully processed the request and is not returning any content.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204
+ */
+export const NoContent = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 204,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 205 Reset Content response.
- * @<T> extends HttpResponseBase<T>
- * @class ResetContent
- * @example
- * import { ResetContent } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const resetContent = new ResetContent()
- *   res.status(resetContent.statusCode).json(resetContent);
- * };
+ * ## 205 Reset Content
+ * The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/205
  */
-export class ResetContent<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 205,
-      message: 'Reset Content',
-      ...options,
-    });
-  }
-}
+export const ResetContent = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 205,
+    message: 'Reset Content',
+  });
+};
 
 /**
- * Class representing a premade HTTP 206 Partial Content response.
- * @<T> extends HttpResponseBase<T>
- * @class PartialContent
- * @example
- * import { PartialContent } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const partialContent = new PartialContent()
- *   res.status(partialContent.statusCode).json(partialContent);
- * };
+ * ## 206 Partial Content
+ * The server is delivering only part of the resource (byte serving) due to a range header sent by the client. The range header is used by HTTP clients to enable resuming of interrupted downloads, or split a download into multiple simultaneous streams.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/206
  */
-export default class PartialContent<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 206,
-      message: 'Partial Content',
-      ...options,
-    });
-  }
-}
+export const PartialContent = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 206,
+    message: 'Partial Content',
+  });
+};
 
 /**
- * Class representing a premade HTTP 207 Multi-Status response.
- * @<T> extends HttpResponseBase<T>
- * @class MultiStatus
- * @example
- * import { MultiStatus } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const multiStatus = new MultiStatus()
- *   res.status(multiStatus.statusCode).json(multiStatus);
- * };
+ * ## 207 Multi-Status
+ * The message body that follows is by default an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/207
  */
-export class MultiStatus<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 207,
-      message: 'Multi-Status',
-      ...options,
-    });
-  }
-}
+export const MultiStatus = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 207,
+    message: 'Multi-Status',
+  });
+};

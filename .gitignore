@@ -4,3 +4,6 @@ node_modules
 dist
 samples
 coverage
+www
+*.lock
+*.yaml

@@ -1,199 +1,118 @@
-import HttpResponseBase from '../core/HttpResponse';
-import { HttpResponseWithDefaults } from '../core/interface';
+import { createHttpResponse, HttpResponseOptions } from '../core/HttpResponse';
 
 /**
- * Class representing a premade HTTP 300 Multiple Choices response.
- * @<T> extends HttpResponseBase<T>
- * @class MultipleChoices
- * @example
- * import { MultipleChoices } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const multipleChoices = new MultipleChoices()
- *   res.status(multipleChoices.statusCode).json(multipleChoices);
- * };
+ * ## 300 Multiple Choices
+ * The request has more than one possible response. The user-agent or user should choose one of them. As there is no standardized way of choosing one of the responses, this response code is very rarely used.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/300
  */
-export class MultipleChoices<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 300,
-      message: 'Multiple Choices',
-      ...options,
-    });
-  }
-}
+export const MultipleChoices = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 300,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 301 Moved Permanently response.
- * @<T> extends HttpResponseBase<T>
- * @class MovedPermanently
- * @example
- * import { MovedPermanently } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const movedPermanently = new MovedPermanently()
- *   res.status(movedPermanently.statusCode).json(movedPermanently);
- * };
+ * ## 301 Moved Permanently
+ * The URL of the requested resource has been changed permanently. The new URL is given in the response.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
  */
-export class MovedPermanently<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 301,
-      message: 'Moved Permanently',
-      ...options,
-    });
-  }
-}
+export const MovedPermanently = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 301,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 302 Found response.
- * @<T> extends HttpResponseBase<T>
- * @class Found
- * @example
- * import { Found } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const found = new Found()
- *   res.status(found.statusCode).json(found);
- * };
+ * ## 302 Found
+ * This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302
  */
-export class Found<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 302,
-      message: 'Found',
-      ...options,
-    });
-  }
-}
+export const Found = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 302,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 303 See Other response.
- * @<T> extends HttpResponseBase<T>
- * @class SeeOther
- * @example
- * import { SeeOther } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const seeOther = new SeeOther()
- *   res.status(seeOther.statusCode).json(seeOther);
- * };
+ * ## 303 See Other
+ * The server sent this response to direct the client to get the requested resource at another URI with a GET request.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/303
  */
-export class SeeOther<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 303,
-      message: 'See Other',
-      ...options,
-    });
-  }
-}
+export const SeeOther = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 303,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 304 Not Modified response.
- * @<T> extends HttpResponseBase<T>
- * @class NotModified
- * @example
- * import { NotModified } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const notModified = new NotModified()
- *   res.status(notModified.statusCode).json(notModified);
- * };
+ * ## 304 Not Modified
+ * This is used for caching purposes. It tells the client that the response has not been modified, so the client can continue to use the same cached version of the response.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
  */
-export class NotModified<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 304,
-      message: 'Not Modified',
-      ...options,
-    });
-  }
-}
+export const NotModified = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 304,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 305 Use Proxy response.
- * @<T> extends HttpResponseBase<T>
- * @class UseProxy
- * @example
- * import { UseProxy } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const useProxy = new UseProxy()
- *   res.status(useProxy.statusCode).json(useProxy);
- * };
+ * ## 305 Use Proxy
+ * Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/305
  */
-export class UseProxy<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 305,
-      message: 'Use Proxy',
-      ...options,
-    });
-  }
-}
-/**
- * Class representing a premade HTTP 307 Temporary Redirect response.
- * @<T> extends HttpResponseBase<T>
- * @class TemporaryRedirect
- * @example
- * import { TemporaryRedirect } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const temporaryRedirect = new TemporaryRedirect()
- *   res.status(temporaryRedirect.statusCode).json(temporaryRedirect);
- * };
- */
-export class TemporaryRedirect<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 307,
-      message: 'Temporary Redirect',
-      ...options,
-    });
-  }
-}
+export const UseProxy = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 305,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 308 Permanent Redirect response.
- * @<T> extends HttpResponseBase<T>
- * @class PermanentRedirect
- * @example
- * import { PermanentRedirect } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const permanentRedirect = new PermanentRedirect()
- *   res.status(permanentRedirect.statusCode).json(permanentRedirect);
- * };
+ * ## 306 Switch Proxy
+ * No longer used. Originally meant "Subsequent requests should use the specified proxy."
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/306
  */
-export class PermanentRedirect<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 308,
-      message: 'Permanent Redirect',
-      ...options,
-    });
-  }
-}
+export const TemporaryRedirect = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 307,
+    message: '',
+  });
+};
 
 /**
- * Class representing a premade HTTP 310 Too Many Redirects response.
- * @<T> extends HttpResponseBase<T>
- * @class TooManyRedirects
- * @example
- * import { TooManyRedirects } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const tooManyRedirects = new TooManyRedirects()
- *   res.status(tooManyRedirects.statusCode).json(tooManyRedirects);
- * };
+ * ## 307 Temporary Redirect
+ * The request and all future requests should be repeated using another URI. 307 and 308 (as proposed) parallel the behaviours of 302 and 301, but do not allow the HTTP method to change. So, for example, submitting a form to a permanently redirected resource may continue smoothly.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307
  */
-export class TooManyRedirects<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 310,
-      message: 'Too Many Redirects',
-      ...options,
-    });
-  }
-}
+export const PermanentRedirect = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 308,
+    message: '',
+  });
+};
+
+/**
+ * ## 308 Permanent Redirect
+ * The request and all future requests should be repeated using another URI. 307 and 308 (as proposed) parallel the behaviours of 302 and 301, but do not allow the HTTP method to change. So, for example, submitting a form to a permanently redirected resource may continue smoothly.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/308
+ */
+export const TooManyRedirects = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 310,
+    message: '',
+  });
+};

@@ -1,266 +1,156 @@
-import HttpResponseBase from '../core/HttpResponse';
-import { HttpResponseWithDefaults } from '../core/interface';
+import { createHttpResponse, HttpResponseOptions } from '../core/HttpResponse';
 
 /**
- * Class representing a premade HTTP 400 Bad Request response.
- * @<T> extends HttpResponseBase<T>
- * @class InternalServerError
- * @example
- * import { InternalServerError } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const internalServerError = new InternalServerError()
- *   res.status(internalServerError.statusCode).json(internalServerError);
- * };
+ * ## 500 Internal Server Error
+ * The server has encountered a situation it doesn't know how to handle.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
  */
-export class InternalServerError<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 500,
-      message: 'Internal server error',
-      ...options,
-    });
-  }
-}
+export const InternalServerError = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 500,
+    message: 'Internal Server Error',
+  });
+};
 
 /**
- * Class representing a premade HTTP 501 Not Implemented response.
- * @<T> extends HttpResponseBase<T>
- * @class NotImplemented
- * @example
- * import { NotImplemented } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const notImplemented = new NotImplemented()
- *   res.status(notImplemented.statusCode).json(notImplemented);
- * };
- *
+ * ## 501 Not Implemented
+ * The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501
  */
-export class NotImplemented<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 501,
-      message: 'Not implemented',
-      ...options,
-    });
-  }
-}
+export const NotImplemented = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 501,
+    message: 'Not Implemented',
+  });
+};
 
 /**
- * Class representing a premade HTTP 502 Bad Gateway response.
- * @<T> extends HttpResponseBase<T>
- * @class BadGateway
- * @example
- * import { BadGateway } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const badGateway = new BadGateway()
- *   res.status(badGateway.statusCode).json(badGateway);
- *
+ * ## 502 Bad Gateway
+ * This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
  */
-export class BadGateway<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 502,
-      message: 'Bad gateway',
-      ...options,
-    });
-  }
-}
+export const BadGateway = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 502,
+    message: 'Bad Gateway',
+  });
+};
 
 /**
- * Class representing a premade HTTP 503 Service Unavailable response.
- * @<T> extends HttpResponseBase<T>
- * @class ServiceUnavailable
- * @example
- * import { ServiceUnavailable } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const serviceUnavailable = new ServiceUnavailable()
- *   res.status(serviceUnavailable.statusCode).json(serviceUnavailable);
- *
+ * ## 503 Service Unavailable
+ * The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This responses should be used for temporary conditions and the Retry-After: HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
  */
-export class ServiceUnavailable<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 503,
-      message: 'Service unavailable',
-      ...options,
-    });
-  }
-}
+export const ServiceUnavailable = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 503,
+    message: 'Service Unavailable',
+  });
+};
 
 /**
- * Class representing a premade HTTP 504 Gateway Timeout response.
- * @<T> extends HttpResponseBase<T>
- * @class GatewayTimeout
- * @example
- * import { GatewayTimeout } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const gatewayTimeout = new GatewayTimeout()
- *   res.status(gatewayTimeout.statusCode).json(gatewayTimeout);
- *
+ * ## 504 Gateway Timeout
+ * This error response is given when the server is acting as a gateway and cannot get a response in time.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
  */
-export class GatewayTimeout<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 504,
-      message: 'Gateway timeout',
-      ...options,
-    });
-  }
-}
+export const GatewayTimeout = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 504,
+    message: 'Gateway Timeout',
+  });
+};
 
 /**
- * Class representing a premade HTTP 505 HTTP Version Not Supported response.
- * @<T> extends HttpResponseBase<T>
- * @class HttpVersionNotSupported
- * @example
- * import { HttpVersionNotSupported } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const httpVersionNotSupported = new HttpVersionNotSupported()
- *   res.status(httpVersionNotSupported.statusCode).json(httpVersionNotSupported);
- *
+ * ## 505 HTTP Version Not Supported
+ * The HTTP version used in the request is not supported by the server.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
  */
-export class HttpVersionNotSupported<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 505,
-      message: 'HTTP version not supported',
-      ...options,
-    });
-  }
-}
+export const HttpVersionNotSupported = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 505,
+    message: 'HTTP Version Not Supported',
+  });
+};
 
 /**
- * Class representing a premade HTTP 506 Variant Also Negotiates response.
- * @<T> extends HttpResponseBase<T>
- * @class VariantAlsoNegotiates
- * @example
- * import { VariantAlsoNegotiates } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const variantAlsoNegotiates = new VariantAlsoNegotiates()
- *   res.status(variantAlsoNegotiates.statusCode).json(variantAlsoNegotiates);
- *
+ * ## 506 Variant Also Negotiates
+ * Transparent content negotiation for the request results in a circular reference.
  */
-export class VariantAlsoNegotiates<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 506,
-      message: 'Variant also negotiates',
-      ...options,
-    });
-  }
-}
+export const VariantAlsoNegotiates = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 506,
+    message: 'Variant Also Negotiates',
+  });
+};
 
 /**
- * Class representing a premade HTTP 507 Insufficient Storage response.
- * @<T> extends HttpResponseBase<T>
- * @class InsufficientStorage
- * @example
- * import { InsufficientStorage } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const insufficientStorage = new InsufficientStorage()
- *   res.status(insufficientStorage.statusCode).json(insufficientStorage);
- *
+ * ## 507 Insufficient Storage
+ * The server is unable to store the representation needed to complete the request.
  */
-export class InsufficientStorage<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 507,
-      message: 'Insufficient storage',
-      ...options,
-    });
-  }
-}
+export const InsufficientStorage = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 507,
+    message: 'Insufficient Storage',
+  });
+};
 
 /**
- * Class representing a premade HTTP 508 Loop Detected response.
- * @<T> extends HttpResponseBase<T>
- * @class LoopDetected
- * @example
- * import { LoopDetected } from 'nexus-res';
- * export default async (req, res) => {
- *   const loopDetected = new LoopDetected()
- *   res.status(loopDetected.statusCode).json(loopDetected);
- *
+ * ## 508 Loop Detected
+ * The server detected an infinite loop while processing the request.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
  */
-export class LoopDetected<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 508,
-      message: 'Loop detected',
-      ...options,
-    });
-  }
-}
+export const LoopDetected = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 508,
+    message: 'Loop Detected',
+  });
+};
+/**
+ * ## 509 Bandwidth Limit Exceeded
+ * This status code, while used by many servers, is not specified in any RFCs.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/509
+ */
+export const NotExtended = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 510,
+    message: 'Not Extended',
+  });
+};
 
 /**
- * Class representing a premade HTTP 510 Not Extended response.
- * @<T> extends HttpResponseBase<T>
- * @class NotExtended
- * @example
- * import { NotExtended } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const notExtended = new NotExtended()
- *   res.status(notExtended.statusCode).json(notExtended);
- *
+ * ## 511 Network Authentication Required
+ * The 511 status code indicates that the client needs to authenticate to gain network access.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/511
  */
-export class NotExtended<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 510,
-      message: 'Not extended',
-      ...options,
-    });
-  }
-}
+export const NetworkAuthenticationRequired = <T>(
+  options: HttpResponseOptions<T>
+) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 511,
+    message: 'Network Authentication Required',
+  });
+};
 
 /**
- * Class representing a premade HTTP 511 Network Authentication Required response.
- * @<T> extends HttpResponseBase<T>
- * @class NetworkAuthenticationRequired
- * @example
- * import { NetworkAuthenticationRequired } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const networkAuthenticationRequired = new NetworkAuthenticationRequired()
- *   res.status(networkAuthenticationRequired.statusCode).json(networkAuthenticationRequired);
- *
+ * ## 520 Unknown Error
+ * The 520 error is used as a "catch-all response for when the origin server returns something unexpected", listing connection resets, large headers, and empty or invalid responses as common triggers.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/520
  */
-export class NetworkAuthenticationRequired<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 511,
-      message: 'Network authentication required',
-      ...options,
-    });
-  }
-}
-
-/**
- * Class representing a premade HTTP 520 Unknown Error response.
- * @<T> extends HttpResponseBase<T>
- * @class UnknownError
- * @example
- * import { UnknownError } from 'nexus-res';
- *
- * export default async (req, res) => {
- *   const unknownError = new UnknownError()
- *   res.status(unknownError.statusCode).json(unknownError);
- *
- */
-export class UnknownError<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 520,
-      message: 'Unknown error',
-      ...options,
-    });
-  }
-}
+export const UnknownError = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 520,
+    message: 'Unknown Error',
+  });
+};

@@ -5,5 +5,3 @@ dist
 samples
 coverage
 www
-*.lock
-*.yaml

@@ -1,9 +1,16 @@
 {
-    "version": "0.1.6",
+    "name": "nexus-res",
+    "version": "1.0.0",
+    "author": "adevinwild",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adevinwild/nexus-res"
+    },
     "license": "MIT",
-    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
     "typings": "dist/index.d.ts",
-    "description": "Generate consistent and informative HTTP responses for your Node.js apps easily.",
     "keywords": [
         "node",
         "node.js",
@@ -33,9 +40,16 @@
         "typed"
     ],
     "icon": "https://raw.githubusercontent.com/adevinwild/nexus-res/HEAD/assets/logo.png",
-    "files": [
-        "dist"
-    ],
+    "type": "module",
+    "source": "src/index.ts",
+    "exports": {
+        "require": "./dist/index.cjs",
+        "default": "./dist/index.modern.js"
+    },
+    "description": "Generate consistent and informative HTTP responses for your Node.js apps easily.",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.module.js",
+    "unpkg": "./dist/index.umd.js",
     "browser": {
         "fs": false,
         "path": false
@@ -44,15 +58,25 @@
         "node": ">=14"
     },
     "scripts": {
-        "start": "tsdx watch",
-        "build": "tsdx build",
-        "test": "tsdx test",
-        "lint": "tsdx lint",
-        "prepare": "tsdx build",
-        "size": "size-limit",
-        "analyze": "size-limit --why"
+        "build": "npm run clean && microbundle",
+        "dev": "microbundle watch",
+        "lint": "eslint ./src --ext .ts",
+        "clean": "rimraf dist",
+        "test": "jest ./tests"
     },
-    "peerDependencies": {},
+    "devDependencies": {
+        "@types/jest": "^29.4.0",
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "@typescript-eslint/parser": "^5.52.0",
+        "eslint": "^8.34.0",
+        "jest": "^29.4.2",
+        "microbundle": "^0.15.1",
+        "prettier": "^2.8.4",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^29.0.5",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5"
+    },
     "husky": {
         "hooks": {
             "pre-commit": "tsdx lint"
@@ -63,35 +87,5 @@
         "semi": true,
         "singleQuote": true,
         "trailingComma": "es5"
-    },
-    "name": "nexus-res",
-    "author": {
-        "name": "adil",
-        "github": "adevinwild",
-        "twitter": "adevinwild"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/adevinwild/nexus-res"
-    },
-    "module": "dist/nexus-res.esm.js",
-    "size-limit": [
-        {
-            "path": "dist/nexus-res.cjs.production.min.js",
-            "limit": "10 KB"
-        },
-        {
-            "path": "dist/nexus-res.esm.js",
-            "limit": "10 KB"
-        }
-    ],
-    "devDependencies": {
-        "@size-limit/preset-small-lib": "^8.1.0",
-        "husky": "^8.0.2",
-        "prettier": "^2.8.1",
-        "size-limit": "^8.1.0",
-        "tsdx": "^0.14.1",
-        "tslib": "^2.4.1",
-        "typescript": "^4.9.4"
     }
 }

@@ -12,13 +12,20 @@
 </p>
 <br />
 <p align="center">
-  <a href="https://github.com/adevinwild/nexus-res/actions/workflows/main.yml" title="CI">
-    <img src="https://github.com/adevinwild/nexus-res/actions/workflows/main.yml/badge.svg?branch=main" />
+  <a href="https://github.com/adevinwild/nexus-res/actions/workflows/test.yml" title="UNIT TESTS">
+    <img src="https://github.com/adevinwild/nexus-res/actions/workflows/test.yml/badge.svg?branch=main" alt="nexus-res units tests" />
   </a>
+
+  <a href="https://www.npmjs.com/package/nexus-res" title="VERSION">
+    <img src="https://img.shields.io/npm/v/nexus-res" alt="nexus-res version" />
+  </a>
+  
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="nexus-res is released under the MIT license." />
   </a>
+  
   <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
+  
 </p>
 
 ---
@@ -53,37 +60,56 @@ yarn add nexus-res
 
 <br />
 
+## Configuration ⚙️
+
+<kbd>nexus-res</kbd> can be configured to match your server environment.
+You can configure the following properties for now inside the <kbd>package.json</kbd> :
+
+> By default the serverType is set to "express", this means that the `send` function will use the `res.json` method
+
+```json
+{
+  "serverType": "express" | "fastify" | "koa" | "hapi"
+}
+```
+
 ## Usage 📖
 
 To use <kbd>nexus-res</kbd> in your Node.js application, import the desired response class and use it to generate an HTTP response:
 
-**Example with an Express.js like route**
+**Example with an Express.js like route (JS)**
 
-```ts
-import { Ok } from 'nexus-res';
+```js
+const { Ok } = require('nexus-res');
 
 export default async (req, res) => {
   const user = req.user;
 
-  // 🎉 Create a new Ok response
-  const ok = new Ok({
-    // The cause of the OK response, add a custom message here (optional)
-    cause: 'Everything is fine.',
-    // Add metadata to your response (optional)
+  // 🎉 Create a new Ok response with the new version
+  return Ok({
     metadata: user,
-    // The URL of the documentation for this response. (optional)
-    reference: 'https://example.com/docs/ok',
-    // A request identifier for debugging purposes. (optional)
-    requestId: '#ref-123',
-  });
+  }).send(res);
+};
+```
 
-  await ok.send(res);
-  // ☝️ This will send the response with the appropriate status code based on your config
+**Example with an Express.js like route (TS)**
+
+```ts
+import { Ok } from 'nexus-res';
+import { User } from './types';
+
+export default async (req, res) => {
+  const user: User = req.user;
+
+  // 🎉 Create a new Ok response with the new version
+  return Ok<User>({
+    metadata: user, // 👈 The type of the metadata is inferred from the generic type
+  }).send(res);
 };
 ```
 
 <br />
 
-## 📖 Documentation
+## 📖 Documentation (WIP)
 
 ## You access the documentation [by clicking here](https://github.com/adevinwild/nexus-res/wiki/Wiki-nexus-res) 👈

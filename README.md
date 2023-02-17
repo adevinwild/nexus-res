@@ -1,6 +1,6 @@
-<p align="center" test>
+<p align="center" >
   <a href="https://www.npmjs.com/package/nexus-res">
-    <img alt="nexus-res" src="./assets/logo.png" width="192" />
+    <img alt="nexus-res" src="./.r/banner.png" width="100%"  />
   </a>
 </p>
 <h1 align="center">
@@ -8,7 +8,7 @@
 </h1>
 <br />
 <p align="center" style="max-width:50%;margin:0 auto;">
-  <code>nexus-res</code> is a lightweight and dependency-free library that provides a <b>structured</b> and <b>easy-to-use</b> way to generate consistent and informative HTTP responses for your Node.js applications.
+  <kbd>nexus-res</kbd> is a lightweight and dependency-free library that provides a <b>structured</b> and <b>easy-to-use</b> way to generate consistent and informative HTTP responses for your Node.js applications.
 </p>
 <br />
 <p align="center">
@@ -27,7 +27,7 @@
 
 ## Main features
 
-- 📦 Contains all necessary HTTP response codes
+- 📦 Contains all necessary HTTP response codes (1XX, 2XX, 3XX, 4XX , 5XX)
 - 🌳 Tree-shakeable
 - 🤌 Dependency-free
 - 🪶 Lightweight
@@ -37,15 +37,9 @@
 
 <br />
 
-## 🤝 Contributing
+## Installation 💾
 
-We welcome contributions to `nexus-res`! If you'd like to contribute, please fork the repository and submit a pull request. Your changes will be reviewed by the maintainers before being merged.
-
-<br  />
-
-## Installation
-
-To install NexusRes, simply run the following command in your terminal:
+To install <kbd>nexus-res</kbd>, simply run the following command in your terminal:
 
 ```bash
 npm install nexus-res
@@ -59,9 +53,9 @@ yarn add nexus-res
 
 <br />
 
-## Usage
+## Usage 📖
 
-To use NexusRes in your Node.js application, import the desired response class and use it to generate an HTTP response:
+To use <kbd>nexus-res</kbd> in your Node.js application, import the desired response class and use it to generate an HTTP response:
 
 **Example with an Express.js like route**
 
@@ -73,13 +67,13 @@ export default async (req, res) => {
 
   // 🎉 Create a new Ok response
   const ok = new Ok({
-    // The cause of the OK response, add a custom message here
+    // The cause of the OK response, add a custom message here (optional)
     cause: 'Everything is fine.',
-    // Add metadata to your response
+    // Add metadata to your response (optional)
     metadata: user,
-    // The URL of the documentation for this response.
+    // The URL of the documentation for this response. (optional)
     reference: 'https://example.com/docs/ok',
-    // A request identifier for debugging purposes.
+    // A request identifier for debugging purposes. (optional)
     requestId: '#ref-123',
   });
 

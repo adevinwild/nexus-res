@@ -1,60 +1,53 @@
-import HttpResponseBase from '../core/HttpResponse';
-import { HttpResponseWithDefaults } from '../core/interface';
-/**
- * Class representing a premade HTTP 100 Continue response.
- * @<T> extends HttpResponseBase<T>
- * @class Continue
- */
-export class Continue<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 100,
-      message: 'Continue',
-      ...options,
-    });
-  }
-}
+import { createHttpResponse, HttpResponseOptions } from '../core/HttpResponse';
 
 /**
- * Class representing a premade HTTP 101 Switching Protocols response.
- * @<T> extends HttpResponseBase<T>
- * @class SwitchingProtocols
+ * ## 100 Continue
+ * The server has received the request headers and the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request).
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/100
  */
-export class SwitchingProtocols<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 101,
-      message: 'Switching Protocols',
-      ...options,
-    });
-  }
-}
+export const Continue = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 100,
+    message: 'Continue',
+  });
+};
 
 /**
- * Class representing a premade HTTP 102 Processing response.
- * @<T> extends HttpResponseBase<T>
- * @class Processing
+ * ## 101 Switching Protocols
+ * The requester has asked the server to switch protocols and the server has agreed to do so.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/101
  */
-export class Processing<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 102,
-      message: 'Processing',
-      ...options,
-    });
-  }
-}
+export const SwitchingProtocols = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 101,
+    message: 'Switching Protocols',
+  });
+};
+
 /**
- * Class representing a premade HTTP 103 Early Hints response.
- * @<T> extends HttpResponseBase<T>
- * @class EarlyHints
+ * ## 102 Processing
+ * A WebDAV request may contain many sub-requests involving file operations, requiring a long time to complete the request. This code indicates that the server has received and is processing the request, but no response is available yet. This prevents the client from timing out and assuming the request was lost.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/102
  */
-export class EarlyHints<T> extends HttpResponseBase<T> {
-  constructor(options?: HttpResponseWithDefaults<T>) {
-    super({
-      statusCode: 103,
-      message: 'Early Hints',
-      ...options,
-    });
-  }
-}
+export const Processing = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 102,
+    message: 'Processing',
+  });
+};
+
+/**
+ * ## 103 Early Hints
+ * Used to return some response headers before final HTTP message.
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103
+ */
+export const EarlyHints = <T>(options: HttpResponseOptions<T>) => {
+  return createHttpResponse({
+    ...options,
+    statusCode: 103,
+    message: 'Early Hints',
+  });
+};

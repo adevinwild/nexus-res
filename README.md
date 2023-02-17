@@ -69,7 +69,7 @@ You can configure the following properties for now inside the <kbd>package.json<
 
 ```json
 {
-  "serverType": "express" | "fastify" | "koa" | "hapi"
+  "serverType": "express" // | "fastify" | "koa" | "hapi"
 }
 ```
 

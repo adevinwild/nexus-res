@@ -1,9 +1,5 @@
-import HttpResponseBase from './core/HttpResponse';
-import { IHttpResponse } from './core/interface';
-
 // Core
-export { HttpResponseBase, IHttpResponse };
-
+export { HttpResponse } from './core/HttpResponse';
 // Modules
 export * from './modules/1XX';
 export * from './modules/2XX';
